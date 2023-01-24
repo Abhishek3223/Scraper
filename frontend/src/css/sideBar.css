@@ -1,0 +1,143 @@
+.navbar {
+  position: fixed;
+  left: 0px;
+  background-color: #111827;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  margin-top: 0px;
+  height: 12%;
+}
+.logo > p {
+  color: aliceblue;
+  font-size: 45px;
+  margin: 0px;
+}
+.logo-img {
+  /* border: 2px solid green; */
+  /* width: 10px; */
+  width: 90%;
+  height: 50px;
+}
+.active {
+  margin: 0px 12px 0px 12px;
+  width: 80%;
+
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+  padding: -1px;
+  justify-content: flex-start;
+  padding-left: 6px;
+}
+/* .active:active{
+    background-color: #9ca3af;
+} */
+
+.ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+}
+.li {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-top: 25px;
+
+  color: #9ca3af;
+}
+
+.option-img {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #00adb5;
+  margin-right: 10px;
+}
+.dash-img{
+  color: #ffffff;
+}
+.item {
+  font-size: 21px;
+  color: #ffffff;
+
+  /* border: 2px solid grey; */
+}
+.selected-item {
+  /* background-color: #3c414d; */
+  background-color: #111827;
+  border-radius: 6px;
+  width: 100%;
+  border: 2px solid #00adb5;
+  /* border-left: 4px solid orange;
+  border-right: 4px solid orange; */
+}
+.selected-para {
+  color: white;
+}
+
+.display-none {
+  display: none;
+}
+
+.logout {
+  /* padding-right: 100px; */
+  position: fixed;
+  /* padding-right: 10%; */
+  /* margin: auto; */
+  width: auto;
+  width: 12%;
+  bottom: 3px;
+  z-index: 3;
+  /* border: 2px solid #00adb5; */
+}
+.logout > .active:hover,
+.logout > .logout-less:hover {
+  background-color: #00adb5;
+}
+
+.logout-less {
+  margin: 0px 12px 0px 12px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+  padding: -1px;
+  justify-content: flex-start;
+  padding-left: 6px;
+  width: 3%;
+
+  border-radius: 6px;
+  /* width: 100%; */
+  border: 2px solid #00adb5;
+  /* border: 2px solid grey; */
+  position: fixed;
+  /* width: auto; */
+  bottom: 3px;
+  z-index: 3;
+}
+.display-none-logout {
+  display: none;
+}
+
+svg {
+  color: aliceblue;
+}

@@ -1,0 +1,6 @@
+.present-comp {
+  width: 98%;
+  margin: 1%;
+  display: flex;
+  flex-wrap: wrap;
+}

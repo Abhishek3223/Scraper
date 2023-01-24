@@ -1,0 +1,115 @@
+:root {
+  --color-primary: #8f44fd;
+  --tab-width: 800px;
+  --button-width: 60px;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.widget {
+  background: #17181a7d;
+  width: var(--tab-width);
+  border-radius: 8px;
+}
+
+input[type="radio"]{
+  display: none;
+}
+
+h2 {
+  color: #fefeff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+  height: 140px;
+}
+
+.content-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: calc(var(--tab-width) * 3);
+  transition: 0.3s;
+}
+
+.content-inner > div {
+  width: inherit;
+  padding: 20px;
+}
+
+.labels >label {
+    color: #fefeff;
+    padding: 5px 10px 5px 10px;
+    margin: 20px;
+    font-size: 15px;
+    border: 1px solid #8f44fd;
+    border-radius: 9px;
+    /* width: var(--button-width); */
+    opacity: 0.35;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+  color: #fefeff;
+}
+
+.labels {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid  #8f44fd;
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: calc(var(--button-width) + 20px);
+  height: 3px;
+  background: var(--color-primary);
+  transition: 0.2s;
+}
+
+/* .tabs input:nth-child(1):checked ~ .buttons .underline {
+  translate: 10px 0;
+}
+
+.tabs input:nth-child(2):checked ~ .buttons .underline {
+  translate: calc(var(--button-width) + 20px) 0;
+}
+
+.tabs input:nth-child(3):checked ~ .buttons .underline {
+  translate: calc((var(--button-width) + 20px) * 2) 0;
+} */
+
+.tabs input:nth-child(1):checked ~ .buttons label:nth-child(1),
+.tabs input:nth-child(2):checked ~ .buttons label:nth-child(2),
+.tabs input:nth-child(3):checked ~ .buttons label:nth-child(3) {
+  opacity: 1;
+  background-color:#57575767;
+}
+
+.tabs input:nth-child(1):checked ~ .content > .content-inner {
+  translate: 0 0;
+}
+
+.tabs input:nth-child(2):checked ~ .content > .content-inner {
+  translate: calc(0px - var(--tab-width)) 0;
+}
+
+.tabs input:nth-child(3):checked ~ .content > .content-inner {
+  translate: calc(0px - var(--tab-width) * 2) 0;
+}

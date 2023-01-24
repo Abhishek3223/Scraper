@@ -1,0 +1,132 @@
+.wrapper-success {
+  /* margin: 120px; */
+  /* border: 2px solid rgb(218, 13, 13); */
+}
+.wrapper-success .card {
+  /* width: 720px; */
+
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-left: 5px solid #49d761;
+  border-radius: 3px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.wrapper-success .card .subject {
+  margin-right: 180px;
+}
+.wrapper-success .card .subject p {
+  color: #909092;
+}
+.wrapper-success .card .icon {
+  font-size: 28px;
+  color: #49d761;
+}
+.wrapper-success .card .icon-times {
+  font-size: 28px;
+  color: #c3c2c7;
+  cursor: pointer;
+}
+/* success */
+/* info */
+.wrapper-info {
+  margin: 120px;
+}
+.wrapper-info .card {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-left: 5px solid #3286e9;
+  border-radius: 3px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.wrapper-info .card .subject {
+  margin-right: 180px;
+}
+.wrapper-info .card .subject p {
+  color: #909092;
+}
+.wrapper-info .card .icon {
+  font-size: 28px;
+  color: #3286e9;
+}
+.wrapper-info .card .icon-times {
+  font-size: 28px;
+  color: #c3c2c7;
+  cursor: pointer;
+}
+/* info */
+/* warning */
+.wrapper-warning {
+  margin: 120px;
+}
+.wrapper-warning .card {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-left: 5px solid #fdc220;
+  border-radius: 3px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.wrapper-warning .card .subject {
+  margin-right: 180px;
+}
+.wrapper-warning .card .subject p {
+  color: #909092;
+}
+.wrapper-warning .card .icon {
+  font-size: 28px;
+  color: #fdc220;
+}
+.wrapper-warning .card .icon-times {
+  font-size: 28px;
+  color: #c3c2c7;
+  cursor: pointer;
+}
+/* warning */
+
+.cont {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  position: fixed;
+  top: -100vh;
+  width: 100%;
+  left: 5%;
+  height: 0vh;
+  z-index: 9;
+  /* border: 2px solid grey; */
+}
+.fade-in-image {
+  animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+  0% {
+    top: -20vh;
+    opacity: 0;
+  }
+  60% {
+    top: 3vh;
+    opacity: 0.7;
+  }
+  100%{
+    top: 3vh;
+
+    opacity: 1;
+  }
+}
+.opacity-zero {
+  opacity: 0;
+}
