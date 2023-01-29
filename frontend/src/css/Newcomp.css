@@ -1,4 +1,5 @@
 .NewComp {
+  width: 97%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -27,10 +28,10 @@
 
 .plus-left {
   cursor: pointer;
-  position: absolute;
+  /* position: absolute; */
   /* left: 0px;
    */
-  right: 3%;
+  /* right: 3%; */
   color: #00adb5;
   font-size: 50px;
   height: 40px;
@@ -64,11 +65,15 @@
 }
 .Add-deatails {
   border-radius: 5px;
-  padding: 30px;
+  padding: 1%;
   background-color: rgba(12, 11, 11, 0.546);
   /* transition: opacity 5s; */
   /* opacity: 1; */
   width: 94%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   height: 50%;
   margin: 1%;
   padding: 1%;
@@ -111,7 +116,7 @@
   display: flex;
 }
 .genrate-btn {
-  padding: 6px;
+  padding: 3px;
   border-radius: 6px;
   align-items: center;
   display: flex;
@@ -133,10 +138,15 @@
   /* border:2px solid #0e0f0f; */
 }
 .title-part {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   margin: 0px;
   padding: 0px;
   display: flex;
   align-items: center;
+  margin-top: 3px;
   /* justify-content: center; */
 }
 .title-div {

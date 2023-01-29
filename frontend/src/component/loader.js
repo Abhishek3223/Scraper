@@ -3,7 +3,7 @@ import '../css/loader.css'
 const Loaderr = () => {
     return (
         <div className='loader-div'>
-            <span class="loader2">
+            <span className="loader2">
 
             </span>
         </div>
@@ -12,7 +12,7 @@ const Loaderr = () => {
 const Loader = () => {
     return (
         <div className='loader-div'>
-            <span class="loader">
+            <span className="loader">
 
             </span>
         </div>

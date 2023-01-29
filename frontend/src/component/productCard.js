@@ -13,18 +13,19 @@ const ProductCard = (props) => {
     const title = props.data.title
     for (let index = 0; index < title.length; index++) {
         const element = title[index];
-
     }
-    const refineTittle = () => {
-
+    const getImage = (link) => {
+        if (link.slice(0, 18) === "https://www.amazon") { return "/images/amazon.png" }
+        else if (link.slice(0, 20) == "https://www.flipkart") { return "/images/flipkart.png" }
+        else { return 0 }
     }
     return (
         <div className='product-card'
-            onClick={() => {
-                setAnalysisData(props.data);
+            onClick={async () => {
+                console.log(props.data);
+                localStorage.setItem('Product_data', JSON.stringify(props.data))
                 navigate('/productAnalysis')
             }}
-
         >
 
             <div className='product-img'>
@@ -40,31 +41,41 @@ const ProductCard = (props) => {
                 </p> */}
                 <div className="rating">
                     ★4.3
+
                 </div>
                 <div className="details">
+
                     <div className="price-amazon">
-                        <img src="/images/amazon.png" alt="" srcset="" />
-                        <p className='product-price'>
-                            Rs 30,000
-                        </p>
+                        {
+                            getImage(props.data.url1.link)?
+                                <>
+                                    <img src={getImage(props.data.url1.link)} alt="" srcset="" />
+                                    <p className='product-price'>
+                                        {props.data.url1.priceData[props.data.url1.priceData.length - 1]}
+                                    </p>
+                                </>
+
+                                : ""
+                        }
+
 
                     </div>
                     <div className="price-flipkart">
-                        <img src="/images/flipkart.png" alt="" srcset="" />
-                        <p className='product-price'>
-                            Rs 30,000
-                        </p>
-                    </div>
-                    {/* <ul>
-                        <li>
-                            6 GB RAM | 64 GB ROM | Expandable Upto 1 TB
-                            
-                        </li>
-                        <li>16.33 cm (6.43 inch) Full HD+ AMOLED Display</li>
-                        <li>64MP + 8MP + 2MP | 16MP Front Camera</li>
-                        <li>5000 mAh Lithium-ion Polymer Battery</li>
+                        {
+                            getImage(props.data.url2.link) ?
+                                <>
+                                    <img src={getImage(props.data.url2.link)} alt="" srcset="" />
+                                    <p className='product-price'>
+                                        {
+                                            props.data.url2.priceData[props.data.url1.priceData.length - 1]
+                                        }
+                                    </p>
+                                </>
+                                : ""
+                        }
 
-                    </ul> */}
+                    </div>
+
                 </div>
                 {/* <div className="price-amazon">
                     <img src="/images/amazon.png" alt="" srcset="" />

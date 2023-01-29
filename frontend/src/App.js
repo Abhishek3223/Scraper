@@ -24,32 +24,31 @@ function App() {
     <div className="App">
       <AuthState>
         <Router>
-          <div className="navArea" >
-            <SeacrhBar changeWidth={toggleSideBarState} />
-            <Alert />
-          </div>
+
           <div className="display-Area">
 
-            <div style={!SideBarstate ? { "width": "5%" } : { "width": "12%" }} className="sidebar-area">
+            <div className="sidebar-area">
               <Sidebar />
             </div>
 
-            <div className="display-content"
-              style={!SideBarstate ? { "width": "95%", "marginLeft": "0.5%" } : { "width": "88%" }}
-            >
+            <div className="display-content" >
+              <div className="navArea" >
+                <SeacrhBar changeWidth={toggleSideBarState} />
+                <Alert />
+              </div>
 
-              <Routes>
-
-                <Route exact path='/signup' element={<SignUp />} />
-                <Route exact path='/login' element={<Login />} />
-                {/* <Route exact path='/alert' element={<Alert/>} /> */}
-                <Route exact path='/' element={<Home />} />
-                <Route exact path='/dashboard' element={<Dashbord />} />
-                <Route exact path='/comment' element={<Comment />} />
-                <Route exact path='/productAnalysis' element={<ProductAnalysis />}
-                />
-              </Routes>
-            </div>
+              <div className='page-content'>
+                <Routes>
+                  <Route exact path='/signup' element={<SignUp />} />
+                  <Route exact path='/login' element={<Login />} />
+                  {/* <Route exact path='/alert' element={<Alert/>} /> */}
+                  <Route exact path='/' element={<Home />} />
+                  <Route exact path='/dashboard' element={<Dashbord />} />
+                  <Route exact path='/comment' element={<Comment />} />
+                  <Route exact path='/productAnalysis' element={<ProductAnalysis />}
+                  />
+                </Routes>
+              </div></div>
           </div>
         </Router>
       </AuthState>

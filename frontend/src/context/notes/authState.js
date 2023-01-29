@@ -29,7 +29,6 @@ const AuthState = (props) => {
 
     const [LoginStatus, setloginStatus] = useState(false);
     const [showFullMenue, setMenue] = useState(false);
-    const [AnalysisData, setAnalysisData] = useState(false);
 
     const Login = async (credentials) => {
         console.log(credentials);
@@ -192,7 +191,7 @@ const AuthState = (props) => {
 
 
     return (
-        <AllContext.Provider value={{ LoginStatus, Login, setloginStatus, Getuser, showFullMenue, setMenue, ShowAlert, SetAlert, SignUp, Addrepel, GetRepel, ActivateAlert, AnalysisData, setAnalysisData }}>
+        <AllContext.Provider value={{ LoginStatus, Login, setloginStatus, Getuser, showFullMenue, setMenue, ShowAlert, SetAlert, SignUp, Addrepel, GetRepel, ActivateAlert }}>
             {props.children}
         </AllContext.Provider>
 

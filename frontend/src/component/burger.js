@@ -3,30 +3,26 @@ import styled from "styled-components";
 
 
 const StyledBurger = styled.div`
-  width: 10vh;
-  height: 10vh;
-  position: fixed;
-  top: 10px;
-  left: 20px;
+  width: 7vh;
+  height: 7.5vh;
+  border:none;
   z-index: 20;
   display: none;
-  border:2px solid grey;
+  
 
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
 
-
-  @media (max-width: 768px) {
-    display: flex;
-    justify-content: space-around;
-    flex-flow: column nowrap;
-  }
 
   div {
     width: 5rem;
-    height: 1rem;
-    background-color: ${({ open }) => (open ? "#ccc" : "#333")};
+    height: 6px;
+    background-color: ${({ open }) => (open ? "#00adb5" : "#00adb5")};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
+    display:0px;
 
     &:nth-child(1) {
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};

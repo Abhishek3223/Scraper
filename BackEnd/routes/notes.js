@@ -25,13 +25,12 @@ router.get('/fetchItems', fetchUSER, async (req, res) => {
 router.post('/addItem', fetchUSER,
     [
         //  these are validation check..
-        body('title', ' there is the need of atleast 3 letter ').isLength({ min: 5 }),
         body('url1', 'Atleast add a link to analyse ').exists()
     ],
     async (req, res) => {
 
         try {
-            const { title, url1, url2 } = req.body
+            const { url1, url2 } = req.body
 
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
@@ -54,26 +53,29 @@ router.post('/addItem', fetchUSER,
                 const url1Data = await ScrapingFunc(url1.link)
                 const url2Data = await ScrapingFunc(url2.link)
 
-                console.log(url1Data);
-                console.log(url2Data);
+                console.log(JSON.stringify(url1Data.Details));
+                // console.log(url1Data.Details);
+                // console.log(url2Data);
 
                 const compRepel = new compData({
                     user: req.user.id,
                     url1: {
+                        img: url1Data.image,
                         link: url1.link,
-                        discription: url1Data.Details,
+                        discription: JSON.stringify(url1Data.Details),
                         actualPrice: url1Data.Actual_price,
                         priceData: [url1Data.Discount_price],
                         timeData: [currentDate],
-                        offers: url1Data.offers
+                        offers: JSON.stringify(url1Data.Details)
                     },
                     url2: {
-                        link: url1.link,
-                        discription: url2Data.Details.toString(),
-                        actualPrice: (url2Data.Actual_price.toString()),
+                        img: url2Data.image,
+                        link: url2.link,
+                        discription: JSON.stringify(url2Data.offers),
+                        actualPrice: url2Data.Actual_price,
                         priceData: [url2Data.Discount_price],
                         timeData: [currentDate],
-                        offers: url2Data.offers
+                        offers: JSON.stringify(url2Data.offers)
                     },
                     title: url1Data.title
                 })
@@ -83,16 +85,18 @@ router.post('/addItem', fetchUSER,
             }
             else {
                 const url1Data = await ScrapingFunc(url1.link)
+                // console.log(JSON.stringify(url1Data.Details));
 
                 const compRepel = new compData({
                     user: req.user.id,
                     url1: {
+                        img: url1Data.image,
                         link: url1.link,
-                        discription: "",
+                        discription: JSON.stringify(url1Data.Details),
                         actualPrice: url1Data.Actual_price,
                         priceData: [url1Data.Discount_price],
                         timeData: [currentDate],
-                        offers: ""
+                        offers: JSON.stringify(url1Data.offers)
                     },
                     url2: { link: "" },
                     title: url1Data.title,

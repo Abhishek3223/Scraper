@@ -24,10 +24,6 @@ const SeacrhBar = (props) => {
         navigate('/signup')
 
     }
-    const changeWidth = () => {
-        setMenue(!(showFullMenue));
-        props.changeWidth()
-    }
 
 
     useEffect(() => {
@@ -41,28 +37,20 @@ const SeacrhBar = (props) => {
 
             }
         }
-    }, [])
+    }, [LoginStatus])
 
 
 
     return (
 
         <div className='container'>
-            <div className='menue-button' onClick={changeWidth}>
-                {/* svg here */}
-                {/* < Menue className='menue' /> */}
+            {/* <div className='menue-button' onClick={changeWidth}>
+
                 <Burger />
 
-                {/* 
-                <div id="menuToggle">
 
-                    <input type="checkbox" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div> */}
 
-            </div>
+            </div> */}
             <div className="title" style={{ "color": "white" }}>
                 Scarpper<span style={{ "color": "orange" }}>.Store</span>
             </div>
@@ -84,12 +72,12 @@ const SeacrhBar = (props) => {
                         <div className='user_id'>
 
                             <div className="div1 avtar">
-                                <img src="/images/avtar.png" alt="" srcset="" />
+                                <img src="/images/avtar.png" alt="" srcSet="" />
                             </div>
 
                             <div className="dropdown-part">
                                 <span className='avtar2'>
-                                    <img src="/images/avtar.png" alt="" srcset="" />
+                                    <img src="/images/avtar.png" alt="" srcSet="" />
                                 </span>
                                 <span className="dropdown-content">
                                     <p className='drop-title'>{title}</p>

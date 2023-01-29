@@ -5,10 +5,12 @@ import { Loaderr } from './loader';
 
 
 const Newcomp = () => {
-
+   
     const [addComp, setaddComp] = useState(false);
     const [height, setheight] = useState(false);
     let [loading, setloding] = useState(false);
+    const contexts = useContext(AllContext)
+    const { Addrepel,  ActivateAlert } = contexts;
 
 
     const increaseheight = () => {
@@ -24,8 +26,6 @@ const Newcomp = () => {
             }, 100);
         }
     }
-    const contexts = useContext(AllContext)
-    const { Addrepel } = contexts;
 
     const [credentials, setCredentials] = useState(
         {
@@ -40,13 +40,19 @@ const Newcomp = () => {
         setCredentials({
             ...credentials, [e.target.name]: [e.target.value]
         })
-
     }
     const submit = async () => {
         setloding(!loading)
         console.log("submit button cliekced");
         console.log(credentials)
-        const res = await Addrepel(credentials)
+        if (credentials.link1) {
+            const res = await Addrepel(credentials)
+        }
+        else {
+            ActivateAlert("Atleast add one link", "warning")
+
+        }
+        setloding(false)
 
         increaseheight();
 
@@ -55,37 +61,20 @@ const Newcomp = () => {
         <div className={height ? "increaseWidth NewComp " :
             "NewComp"} >
             <div className='plus'>
-
-                <p className='create-new-para'>
-                    Lets create a new repel for u
-                </p>
-                <p onClick={() => { increaseheight() }} className='plus-left rotate'>
+                <p onClick={() => { increaseheight() }} className='plus-left '>
                     {
                         loading ? <Loaderr /> : '+'
                     }
                 </p>
+                <p className='create-new-para'>
+                    Lets create a new repel for u
+                </p>
+
 
             </div>
 
             <div className={addComp ? "Add-deatails" :
                 " display-none"}>
-                <div className='title-part'>
-                    <div className='div-label title-div'>
-                        <p className='label'>Title </p>
-                        <input className='input' type="text" id="fname" name="title" onChange={change} />
-                    </div>
-                    <div className="genrate-btn" onClick={submit}>
-                        gernate comporator
-                        <span >
-                            {
-                                loading ?
-                                    <Loaderr /> :
-                                    <i className="fa-solid fa-location-arrow send"></i>
-
-                            }
-                        </span>
-                    </div>
-                </div>
 
                 <div className='div-label'>
                     <p className='label'>Link 1</p>
@@ -96,10 +85,25 @@ const Newcomp = () => {
                     <p className='label'>Link 2</p>
                     <input className='input' type="text" id="fname" name="link2" onChange={change} />
                 </div>
+                <div className='title-part'>
+
+
+                    <div className="genrate-btn" onClick={submit}>
+                        gernate comporator
+                        <span >
+                            {
+                                loading ?
+                                    <Loaderr /> :
+                                    <i style={{ "color": "white" }} className="fa-solid fa-2x fa-location-arrow send"></i>
+
+                            }
+                        </span>
+                    </div>
+                </div>
 
             </div>
 
-        </div>
+        </div >
     )
 }
 

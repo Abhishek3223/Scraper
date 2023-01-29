@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+
 import '../css/imageCarousel.css'
 
 
@@ -6,41 +7,19 @@ import '../css/imageCarousel.css'
 
 
 const Carousel = (props) => {
+    // const [detailsSpecs, setDetailsSpecs] = useState(false)
+    const [_items, set_item] = useState([])
 
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem('Product_data'))
+        set_item(data.url1.img)
+        console.log(_items);
+    }, [])
     const slideWidth = 30;
-    const _items = [
-        'https://i.postimg.cc/RhYnBf5m/er-slider.jpg', 'https://i.postimg.cc/qBGQNc37/ro-slider.jpg', 'https://i.postimg.cc/cHdMJQKG/svb-slider.jpg', 'https://i.postimg.cc/C12h7nZn/ms-1.jpg', 'https://i.postimg.cc/NfzMDVHP/willie-mosconi-slider.jpg'
-    ]
-    // const _items = [
-    //     {
-    //         player: {
-    //             image: 'https://i.postimg.cc/RhYnBf5m/er-slider.jpg',
-    //         },
-    //     },
-    //     {
-    //         player: {
-    //             image: 'https://i.postimg.cc/qBGQNc37/ro-slider.jpg',
-    //         },
-    //     },
-    //     {
-    //         player: {
-    //             image: 'https://i.postimg.cc/cHdMJQKG/svb-slider.jpg',
-    //         },
-    //     },
-    //     {
-    //         player: {
-    //             image: 'https://i.postimg.cc/C12h7nZn/ms-1.jpg',
-    //         },
-    //     },
-    //     {
-    //         player: {
-    //             image: 'https://i.postimg.cc/NfzMDVHP/willie-mosconi-slider.jpg',
-    //         },
-    //     },
-    // ];
+
 
     const length = _items.length;
-    _items.push(..._items);
+    // _items.push(..._items);
 
     const sleep = (ms = 0) => {
         return new Promise((resolve) => setTimeout(resolve, ms));

@@ -27,17 +27,20 @@ li {
   /* border: 2px solid red; */
   /* width: 90vw; */
 }
-.sidebar-area {
+.page-content {
+  /* padding: 0.5%; */
+  margin: 0.5%;
 
 }
 .display-content {
-  /* width: 95%; */
-  padding: 0.5%;
+  width: 95%;
+  margin: 0px;
   /* float: right; */
   overflow-x: hidden;
   position: relative;
   left: 0px;
   height: 100%;
+  /* border: 2px solid red; */
 
   /* background-color: rgb(117, 117, 117); */
 }

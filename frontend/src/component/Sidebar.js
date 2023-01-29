@@ -4,19 +4,33 @@ import AllContext from '../context/notes/Context';
 import { Logo, Home, DashboardImage } from '../images/image';
 import { Link, useLocation } from 'react-router-dom'
 import Logout from '../images/logout';
-
-const SideBar = () => {
+import Burger from './burger';
+ 
+const SideBar = (props) => {
 
     const location = useLocation().pathname;
     const context = useContext(AllContext)
-    const { setloginStatus, showFullMenue, ActivateAlert } = context;
+    const { setloginStatus, showFullMenue, ActivateAlert, setMenue } = context;
 
 
+    const changeWidth = () => {
+        setMenue(!(showFullMenue));
+        props.changeWidth()
+    }
 
     return (
         <div className='navbar'>
 
             <div className='ul'>
+                <div className='li'>
+                    <div className='menue-button' onClick={changeWidth}>
+
+                        <Burger />
+
+
+
+                    </div>
+                </div>
                 <div className='li'>
                     <Link to="/" className={location === "/" ? "active selected-item" : "active"}>
                         <span className='option-img'>

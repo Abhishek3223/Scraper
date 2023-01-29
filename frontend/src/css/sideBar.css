@@ -1,6 +1,4 @@
 .navbar {
-  position: fixed;
-  left: 0px;
   background-color: #111827;
   height: 100%;
   margin: 0px;
@@ -49,6 +47,7 @@
   flex-direction: column;
   margin: 0px;
   padding: 0px;
+  /* margin-top: 7vh; */
 }
 .li {
   display: flex;
@@ -140,4 +139,8 @@
 
 svg {
   color: aliceblue;
+}
+
+.menue-button{
+  margin-left: 10px;
 }

@@ -1,6 +1,7 @@
 .container {
-  position: fixed;
+  /* position: fixed;
   top: 0px;
+  left: auto; */
   z-index: 7;
   right: 0px;
   display: flex;
@@ -12,12 +13,12 @@
   align-items: center;
 }
 .menue-button {
-  border: 2px solid red;
-  width: 5%;
-  height: 90%;
-  position: absolute;
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 10vh;
+  /* position: absolute;
   top: 0px;
-  left: 0px;
+  left: 0px; */
 }
 .menue {
   filter: invert(65%) sepia(36%) saturate(2843%) hue-rotate(360deg)
@@ -72,9 +73,6 @@
   /* background-color: #1859c9db; */
 }
 
-/* .signup-button:hover {
-  background-color: #e9ecf0d1;
-} */
 
 .user_id {
   height: 100px;

@@ -16,7 +16,7 @@ const run = async () => {
         const db = client.db("PriceComporator");
         const col = db.collection("comp_objs")
         const data = await col.find().toArray();
-        console.log(data)
+        // console.log(data)
 
 
 
@@ -38,25 +38,25 @@ const run = async () => {
 
                 const link = element.url1.link
                 const d = await ScrapingFunc(link);
-                console.log(d);
+                // console.log(d);
                 if (d.Actual_price) {
                     const newPrice = (d.Actual_price)
                     element.url1.actualPrice = newPrice
                     const newDiscountedPrice = (d.Discount_price)
                     // const newPriceData = element.url1.priceData.push(newDiscountedPrice)
                     // const newTimeData = element.url1.timeData.push(currentDate)
-                    console.log({
-                        _id: element.url1._id,
-                        newDiscountedPrice,
-                        currentDate,
-                        // newPriceData,
-                        // newTimeData
-                    })
+                    // console.log({
+                    //     _id: element.url1._id,
+                    //     newDiscountedPrice,
+                    //     currentDate,
+                    //     // newPriceData,
+                    //     // newTimeData
+                    // })
 
                     var id = (element.url1._id).toString()
                     var o_id = new ObjectId(id);
 
-                    console.log(o_id);
+                    // console.log(o_id);
                     try {
                         col.findOneAndUpdate({ _id: o_id },
                             {
@@ -69,7 +69,7 @@ const run = async () => {
                                 if (err) console.log(["error occoured !!", err]);
                                 else {
 
-                                    console.log(["Done !!!", data]);
+                                    // console.log(["Done !!!", data]);
                                 }
                             }, { upsert: true, returnOriginal: false }
                         )
@@ -84,11 +84,11 @@ const run = async () => {
                 const link = element.url2.link
                 const d = await ScrapingFunc(link);
 
-                const newPrice = (d.Discount_price)
+                const newPrice = (d?.Discount_price)
                 element.url2.actualPrice[0] = newPrice
                 const newDiscountedPrice = (d.Actual_price)
-                element.url2.priceData.push(newDiscountedPrice)
-                element.url2.timeData.push(currentDate)
+                // element.url2.priceData.push(newDiscountedPrice)
+                // element.url2.timeData.push(currentDate)
 
                 await col.updateOne({ _id: element.url1._id },
                     {

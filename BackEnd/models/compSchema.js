@@ -6,9 +6,10 @@ const urlSchema = new Schema({
         type: String,
         require: true
     },
+    img:[String],
     discription: String,
-    actualPrice: String,
-    priceData: [String],
+    actualPrice: Number,
+    priceData: [Number],
     timeData: [String],
     offers: String
 })
