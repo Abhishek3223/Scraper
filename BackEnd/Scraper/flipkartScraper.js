@@ -35,19 +35,22 @@ const flipkartScraper = (async (url) => {
         const productDetails = await page.evaluate(async () => {
 
             const ProductName = document.querySelector('.B_NuCI') ? document.querySelector('.B_NuCI').innerHTML : null;
-            const refinedProductName = ProductName.replace("<!-- -->&nbsp;&nbsp;", "");
+            const refinedProductName = ProductName.replaceAll("<!-- -->&nbsp;&nbsp;", "");
 
             const rating = document.querySelector('._3LWZlK') ? document.querySelector('._3LWZlK').innerHTML.slice(0, 3) : null;
 
-            const Discount_price = document.querySelector('._30jeq3._16Jk6d') ? document.querySelector('._30jeq3._16Jk6d').innerHTML.replace(',', "").replace('₹', "") : null;
+            const Discount_price = document.querySelector('._30jeq3._16Jk6d') ? document.querySelector('._30jeq3._16Jk6d').innerText.replaceAll(',', "").replaceAll('₹', "") : "";
 
-            const price = document.querySelector('._3I9_wc._2p6lqe') ? (document.querySelector('._3I9_wc._2p6lqe').innerHTML).slice(9, (document.querySelector('._3I9_wc._2p6lqe').innerHTML).length).replace(',', "").replace('₹', "") : Discount_price
+            const price = document.querySelector('._3I9_wc._2p6lqe') ? (document.querySelector('._3I9_wc._2p6lqe').innerHTML).slice(9, (document.querySelector('._3I9_wc._2p6lqe').innerHTML)?.length).replaceAll(',', "")?.replaceAll('₹', "") : Discount_price
+
 
             const details = [];
             document.querySelectorAll('._21Ahn-').forEach(elem => {
                 details.push(elem.innerHTML)
             });
 
+
+            // getting details--------------------
             const detailskey = [];
             const detailsvalue = [];
 
@@ -60,17 +63,16 @@ const flipkartScraper = (async (url) => {
                     detailskey.push(elem.innerHTML)
                 }) : "nor found"
 
-
-
-
             const deatails_obj = [detailskey, detailsvalue];
+
+            // getting image----------------------
             const image = []
             document.querySelectorAll(" div._2mLllQ > ul > li > div > div > img") ?
                 document.querySelectorAll(" div._2mLllQ > ul > li > div > div > img").forEach(elem => {
-                    image.push(elem.src)
+                    image.push(elem.src.replaceAll("128","540"))
                 }) : "nor found"
 
-
+            // geting image-------------
             const offerkey = [];
             (await document.querySelectorAll('  #container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div > div._3TT44I > div > div > span > li > span.u8dYXW')) ?
                 document.querySelectorAll('  #container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div > div._3TT44I > div > div > span > li > span.u8dYXW').forEach(elem => {
@@ -114,7 +116,7 @@ const flipkartScraper = (async (url) => {
 
 });
 
-flipkartScraper("https://www.flipkart.com/oneplus-10-pro-5g-emerald-forest-256-gb/p/itmcd1af0daf0394")
+// flipkartScraper("https://www.flipkart.com/apple-iphone-14-product-red-128-gb/p/itm1f78a4e1a1d76")
 
 
 

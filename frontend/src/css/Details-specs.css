@@ -14,7 +14,7 @@ table {
   background-color: #00adb5;
 }
 .tbl-content {
-  /* height: 50vh; */
+  height: 50vh;
   overflow-x: auto;
   margin-top: 0px;
   /* border: 1px solid rgba(255, 255, 255, 0.3); */
@@ -52,8 +52,7 @@ body {
 }
 section {
   /* margin: 50px; */
-  /* height: 50vh; */
-  max-height: 50vh;
+  height: 50vh;
   border: 1px solid #773131;
   overflow-y: hidden;
   border-radius: 10px;

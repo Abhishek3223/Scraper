@@ -32,9 +32,11 @@
   align-items: center;
   background-color: #ffffff;
   z-index: 2;
+  overflow: hidden;
 }
 .product-img > img {
   height: 90%;
+  /* width: 90%; */
 }
 .product-details {
   margin: 0px;
@@ -106,4 +108,27 @@ li {
   text-align: center;
   justify-content: center;
   margin-left: 2px;
+}
+.prodcut-secondry-title {
+  font-size: 10px;
+  margin-left: 6px;
+  margin-bottom: 20px;
+}
+.actual-price {
+  font-size: 10px;
+  margin-left: 10px;
+  color: #ffffff;
+  text-decoration: line-through wavy rgb(253, 4, 4);
+}
+
+@media only screen and (max-width: 600px) {
+  .product-card {
+    height: 22vh;
+    width: 100%;
+    background-color: #111827;
+    border-radius: 4px;
+  }
+  .product-img {
+    border-radius: 4px;
+  }
 }

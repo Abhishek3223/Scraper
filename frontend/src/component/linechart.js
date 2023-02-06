@@ -18,7 +18,8 @@ const Linechart = () => {
     }, [])
 
     const changeData = (d) => {
-        console.log(d.url1.priceData,);
+       // console.log(d.url1.priceData,);
+       // console.log(d.url2.priceData,);
         setlabelData({
             labels: d.url1.timeData,
             datasets: [
@@ -40,42 +41,7 @@ const Linechart = () => {
 
 
     }
-    // const data = {
-    //     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    //     datasets: [
-    //         {
-    //             label: "First dataset",
-    //             data: [33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65],
-    //             fill: true,
-    //             backgroundColor: "rgba(75,192,192,0.2)",
-    //             borderColor: "rgba(75,192,192,1)"
-    //         },
-    //         {
-    //             label: "Second dataset",
-    //             data: [85, 21, 44, 65, 11, 53, 33, 25, 35, 51, 54, 76, 33, 25, 35, 51, 54, 76.33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65],
-    //             fill: false,
-    //             borderColor: "#742774"
-    //         }
-    //     ]
-    // };
-    // const data = {
-    //     labels: ,
-    //     datasets: [
-    //         {
-    //             label: "First dataset",
-    //             data: [33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65],
-    //             fill: true,
-    //             backgroundColor: "rgba(75,192,192,0.2)",
-    //             borderColor: "rgba(75,192,192,1)"
-    //         },
-    //         {
-    //             label: "Second dataset",
-    //             data: [85, 21, 44, 65, 11, 53, 33, 25, 35, 51, 54, 76, 33, 25, 35, 51, 54, 76.33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65, 33, 53, 85, 41, 44, 65],
-    //             fill: false,
-    //             borderColor: "#742774"
-    //         }
-    //     ]
-    // };
+
 
     // {
     //     labels: data.labels,
@@ -182,7 +148,7 @@ const Linechart = () => {
 
     return (
         <div style={{ 'width': '100%', 'height': "100%" }}>
-            <div className="but-changePeriod">
+            {/* <div className="but-changePeriod">
                 <button className={week ? 'bg-purple' : "bg-normal"} onClick={() => setChart('week')}>
                     last week
                 </button>
@@ -192,7 +158,7 @@ const Linechart = () => {
                 <button className={Year ? 'bg-purple' : "bg-normal "} onClick={() => setChart('year')}>
                     6 Months
                 </button>
-            </div>
+            </div> */}
             {
                 labelData ?
                     <Line data={labelData} /> : ""

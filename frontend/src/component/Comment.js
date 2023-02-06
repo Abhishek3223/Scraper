@@ -3,6 +3,7 @@ import '../css/Coment.css'
 import AllContext from '../context/notes/Context'
 import { Loaderr } from './loader';
 import { Loader } from './loader';
+import ProfileCard from './ProfileCard';
 
 
 export const Comment = () => {
@@ -110,20 +111,24 @@ export const Comment = () => {
 
     return (
         <div className="comment-section">
-            <div className="my-profile">
-                {/* <Loaderr /> */}
-            </div>
+
+            <ProfileCard />
+
             <div className="input-cmnt">
                 <input className='input' type="text" id="fname" name="message" onChange={change} />
                 <button className="add-cmt-btn" onClick={() => { AddCmt() }}>
-                    Send
+                    {/* Send */}
                     <span>
 
                         {
                             loading ?
                                 <Loaderr /> :
-                                <i className="fa-solid fa-location-arrow send"></i>
-
+                                <span style={{
+                                    display: "flex"
+                                }}>
+                                    Send
+                                    <i className="fa-solid fa-location-arrow send"></i>
+                                </span>
                         }
 
                     </span>

@@ -66,12 +66,12 @@ router.post('/addItem', fetchUSER,
                         actualPrice: url1Data.Actual_price,
                         priceData: [url1Data.Discount_price],
                         timeData: [currentDate],
-                        offers: JSON.stringify(url1Data.Details)
+                        offers: JSON.stringify(url1Data.offers)
                     },
                     url2: {
                         img: url2Data.image,
                         link: url2.link,
-                        discription: JSON.stringify(url2Data.offers),
+                        discription: JSON.stringify(url2Data.Details),
                         actualPrice: url2Data.Actual_price,
                         priceData: [url2Data.Discount_price],
                         timeData: [currentDate],

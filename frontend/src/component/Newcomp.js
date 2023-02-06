@@ -43,8 +43,8 @@ const Newcomp = () => {
     }
     const submit = async () => {
         setloding(!loading)
-        console.log("submit button cliekced");
-        console.log(credentials)
+       // console.log("submit button cliekced");
+       // console.log(credentials)
         if (credentials.link1) {
             const res = await Addrepel(credentials)
         }
@@ -89,7 +89,7 @@ const Newcomp = () => {
 
 
                     <div className="genrate-btn" onClick={submit}>
-                        gernate comporator
+                        Genrate comporator
                         <span >
                             {
                                 loading ?

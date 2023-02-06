@@ -6,6 +6,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     }, // String is shorthand for {type: String}
+    verfied: {
+        type: Boolean,
+        default: false,
+    },
     email: {
         type: String,
         require: true,

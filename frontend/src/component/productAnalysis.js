@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import '../css/productAnalysis.css'
 import { useNavigate } from 'react-router-dom'
-import Details from './details'
+// import Details from './details'
 import AllContext from '../context/notes/Context'
 import Carousel from './imageSlider'
 import Linechart from './linechart'
@@ -53,9 +53,8 @@ const ProductAnalysis = (props) => {
     const update = async () => {
         setloding(true);
         const res = await updateNotifyPrice();
-        // console.log(res.status);
         ActivateAlert("succesfully updated the price", "success")
-
+        console.log(res);
         setloding(false);
     }
 
@@ -66,7 +65,7 @@ const ProductAnalysis = (props) => {
         const data = JSON.parse(localStorage.getItem('Product_data'))
         setAnalysisData(data)
         console.log(data);
-        console.log(AnalysisData);
+        // console.log(AnalysisData.offers);
     }, [])
 
     const getImage = (link) => {
@@ -100,10 +99,18 @@ const ProductAnalysis = (props) => {
                     className="back-btn" >
                     <i className="fa-solid fa-angles-left fa-3x "  ></i>
                 </div>
-
                 <div className="imageSlider">
                     <Carousel />
                 </div>
+                <div className='up-title'>
+                    <p className='analysis-title-up scale-up-top'>
+                        {AnalysisData.title ?
+                            AnalysisData.title : "NO name"
+                        }
+
+                    </p>
+                </div>
+
                 <div className='Price-offers'>
                     <div className="price">
 
@@ -137,9 +144,9 @@ const ProductAnalysis = (props) => {
                             // amazon
                             <div className={blur1 ? "blur-out-contract-bck " : "focus-in-expand"}>
                                 {
-                                    AnalysisData.url1 ?
-                                        (JSON.parse(AnalysisData.url1.offers)[0].map((i, k) => {
-                                            return <p key={k}><span> {i}</span> :{JSON.parse(AnalysisData.url1.offers)[1][k]}</p>
+                                    AnalysisData.url1?.offers ?
+                                        (JSON.parse(AnalysisData.url1.offers)[0]?.map((i, k) => {
+                                            return <p key={k}><span> {i}</span> :{JSON.parse(AnalysisData.url1.offers)[1][k] ? JSON.parse(AnalysisData.url1.offers)[1][k] : "Please go to site for more info."}</p>
                                         })) : ""
                                 }
 
@@ -148,9 +155,9 @@ const ProductAnalysis = (props) => {
                             // for flipkart
                             <div className={blur2 ? "blur-out-contract-bck " : "focus-in-expand"}>
                                 {
-                                    AnalysisData.url2 ?
-                                        (JSON.parse(AnalysisData.url2.offers)[0].map((i, k) => {
-                                            return <p key={k}><span> {i}</span>:{JSON.parse(AnalysisData.url2.offers)[1][k]}</p>
+                                    AnalysisData.url2?.offers ?
+                                        (JSON.parse(AnalysisData.url2.offers)[0]?.map((i, k) => {
+                                            return <p key={k}><span> {i}</span>:{JSON.parse(AnalysisData.url2.offers)[1] !== [] ? JSON.parse(AnalysisData.url2.offers)[1][k] : ""}</p>
                                         })) : ""
                                 }
                             </div>
@@ -163,8 +170,8 @@ const ProductAnalysis = (props) => {
                     <div className="bell" onClick={() => { setNotification(!notification) }}>
                         {
                             notification ?
-                                <i class=" scale-up-top  fa-5x fa-solid fa-bell-slash"></i> :
-                                <i class=" scale-up-top  fa-solid fa-bell fa-5x"></i>
+                                <i className=" scale-up-top  fa-5x fa-solid fa-bell-slash"></i> :
+                                <i className=" scale-up-top  fa-solid fa-bell fa-5x"></i>
                         }
 
                     </div>
@@ -177,8 +184,8 @@ const ProductAnalysis = (props) => {
                                 <span >
                                     {
                                         loading ?
-                                            <Loaderr /> :
-                                            <i className="fa-solid fa-location-arrow send"></i>
+                                            <Loaderr style={{ marginLeft: '10px' }} /> :
+                                            <i style={{ 'color': 'white' }} className="fa-solid fa-location-arrow send"></i>
 
                                     }
                                 </span>

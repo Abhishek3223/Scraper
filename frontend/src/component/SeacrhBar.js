@@ -4,7 +4,8 @@ import '../css/searchBar.css'
 import AllContext from '../context/notes/Context'
 // import { Menue } from '../images/image'
 import '../css/hamburger.css'
-import Burger from './burger';
+import MobileNav from './mobileNabar';
+// import Burger from './burger';
 
 
 const SeacrhBar = (props) => {
@@ -12,7 +13,7 @@ const SeacrhBar = (props) => {
     const navigate = useNavigate();
 
     const context = useContext(AllContext)
-    const { LoginStatus, setloginStatus, Getuser, showFullMenue, setMenue } = context;
+    const { LoginStatus, setloginStatus, Getuser } = context;
 
     const [title, setitle] = useState("")
     const [email, setmail] = useState("")
@@ -50,9 +51,11 @@ const SeacrhBar = (props) => {
 
 
 
-            </div> */}
+                
+            </div> */}                <MobileNav />
             <div className="title" style={{ "color": "white" }}>
-                Scarpper<span style={{ "color": "orange" }}>.Store</span>
+                {/* Scarpper<span style={{ "color": "orange" }}>.Store</span> */}
+                <img src="/images/siteLogo2.png" alt="" srcset="" />
             </div>
             <div className="authentication">
                 {/* <div className="searchBar">

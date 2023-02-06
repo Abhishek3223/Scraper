@@ -26,8 +26,15 @@
   color: aliceblue;
 }
 .title {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
   color: white;
   font-size: 25px;
+}
+.title > img {
+  height: 8vh;
 }
 
 .authentication > .buttons {
@@ -73,7 +80,6 @@
   /* background-color: #1859c9db; */
 }
 
-
 .user_id {
   height: 100px;
   display: flex;
@@ -100,6 +106,7 @@
   height: 35px;
 }
 .dropdown-part {
+  z-index: 10;
   background-color: #111827;
   border-radius: 6px;
   width: auto;
@@ -122,9 +129,10 @@
 }
 .drop-title {
   font-size: 20px;
+  color: #00adb5;
 }
 .drop-email {
-  color: #545454;
+  color: #b5b5b5;
 }
 
 .user_id:hover .dropdown-part {
@@ -142,4 +150,9 @@
   height: 20px;
   width: auto;
   color: rgb(255, 255, 255);
+}
+@media only screen and (max-width: 600px) {
+  .button-div {
+    display: none;
+  }
 }

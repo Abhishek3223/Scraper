@@ -15,7 +15,7 @@
   border-radius: 8px;
 }
 
-input[type="radio"]{
+input[type="radio"] {
   display: none;
 }
 
@@ -46,22 +46,22 @@ h2 {
   padding: 20px;
 }
 
-.labels >label {
-    color: #fefeff;
-    padding: 5px 10px 5px 10px;
-    margin: 20px;
-    font-size: 15px;
-    border: 1px solid #8f44fd;
-    border-radius: 9px;
-    /* width: var(--button-width); */
-    opacity: 0.35;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.labels > label {
+  color: #fefeff;
+  padding: 5px 10px 5px 10px;
+  margin: 20px;
+  font-size: 15px;
+  border: 1px solid #8f44fd;
+  border-radius: 9px;
+  /* width: var(--button-width); */
+  opacity: 0.35;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-p {
+div > p {
   margin: 0;
   font-size: 14px;
   color: #fefeff;
@@ -70,7 +70,7 @@ p {
 .labels {
   position: relative;
   display: flex;
-  border-bottom: 1px solid  #8f44fd;
+  border-bottom: 1px solid #8f44fd;
 }
 
 .underline {
@@ -99,7 +99,7 @@ p {
 .tabs input:nth-child(2):checked ~ .buttons label:nth-child(2),
 .tabs input:nth-child(3):checked ~ .buttons label:nth-child(3) {
   opacity: 1;
-  background-color:#57575767;
+  background-color: #57575767;
 }
 
 .tabs input:nth-child(1):checked ~ .content > .content-inner {

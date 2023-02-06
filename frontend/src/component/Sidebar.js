@@ -24,11 +24,7 @@ const SideBar = (props) => {
             <div className='ul'>
                 <div className='li'>
                     <div className='menue-button' onClick={changeWidth}>
-
                         <Burger />
-
-
-
                     </div>
                 </div>
                 <div className='li'>

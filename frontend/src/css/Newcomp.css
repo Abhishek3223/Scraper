@@ -160,3 +160,27 @@
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+@media only screen and (max-width: 600px) {
+  .label {
+    width: 30%;
+  }
+  .plus {
+    height: 15%;
+  }
+  .create-new-para {
+    font-size: 20px;
+  }
+  .genrate-btn {
+    margin: 4px;
+    padding: 0px;
+    width: 74%;
+  }
+  .NewComp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Add-deatails {
+    height: 65%;
+  }
+}

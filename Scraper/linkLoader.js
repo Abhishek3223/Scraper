@@ -16,7 +16,7 @@ const run = async () => {
         const db = client.db("PriceComporator");
         const col = db.collection("comp_objs")
         const data = await col.find().toArray();
-        // console.log(data)
+        console.log(data)
 
 
 
@@ -41,38 +41,40 @@ const run = async () => {
                 // console.log(d);
                 if (d.Actual_price) {
                     const newPrice = (d.Actual_price)
-                    element.url1.actualPrice = newPrice
                     const newDiscountedPrice = (d.Discount_price)
-                    // const newPriceData = element.url1.priceData.push(newDiscountedPrice)
-                    // const newTimeData = element.url1.timeData.push(currentDate)
-                    // console.log({
-                    //     _id: element.url1._id,
-                    //     newDiscountedPrice,
-                    //     currentDate,
-                    //     // newPriceData,
-                    //     // newTimeData
-                    // })
-
                     var id = (element.url1._id).toString()
                     var o_id = new ObjectId(id);
-
-                    // console.log(o_id);
+                    const offers = d.offers
+                    const details = JSON.stringify(d.Details)
+                    console.log(details);
                     try {
-                        col.findOneAndUpdate({ _id: o_id },
+                        col.updateOne({ "url1._id": o_id },
                             {
                                 $set: {
-                                    actualPrice: newPrice,
-                                    // priceData: [newDiscountedPrice],
-                                    // currentDate: [currentDate]
+                                    "url1.actualPrice": newPrice,
+                                    "url1.offers": offers
+                                },
+                                $push: {
+                                    "url1.priceData": newDiscountedPrice,
+                                    "url1.timeData": currentDate
                                 }
                             }, (err, data) => {
                                 if (err) console.log(["error occoured !!", err]);
                                 else {
 
-                                    // console.log(["Done !!!", data]);
+                                    console.log(["Done !!!", data]);
                                 }
                             }, { upsert: true, returnOriginal: false }
                         )
+                        if (element.url1.discription === '[[], []]') {
+                            console.log(`updated the discription of ${element._id}`);
+                            col.updateOne({ "url1._id": o_id },
+                                {
+                                    $set: {
+                                        "url1.discription": details
+                                    }
+                                })
+                        }
                     } catch (error) {
                         console.log(error)
                     }
@@ -83,21 +85,46 @@ const run = async () => {
 
                 const link = element.url2.link
                 const d = await ScrapingFunc(link);
-
-                const newPrice = (d?.Discount_price)
-                element.url2.actualPrice[0] = newPrice
+                const newPrice = (d.Discount_price)
                 const newDiscountedPrice = (d.Actual_price)
-                // element.url2.priceData.push(newDiscountedPrice)
-                // element.url2.timeData.push(currentDate)
+                const offers = d.offers
+                const details = JSON.stringify(d.Details)
+                console.log(`details is`, details);
+                var id = (element.url2._id).toString()
+                var o_id = new ObjectId(id);
 
-                await col.updateOne({ _id: element.url1._id },
-                    {
-                        $set: {
-                            actualPrice: newPrice,
+                try {
+                    col.updateOne({ "url2._id": o_id },
+                        {
+                            $set: {
+                                "url2.actualPrice": newPrice,
+                                "url2.offers": offers
+                            },
+                            $push: {
+                                "url2.priceData": newDiscountedPrice,
+                                "url2.timeData": currentDate
+                            }
+                        }, (err, data) => {
+                            if (err) console.log(["error occoured !!", err]);
+                            else {
 
-                        }
+                                console.log(["Done !!!", data]);
+                            }
+                        }, { upsert: true, returnOriginal: false }
+                    )
+
+                    if (element.url2.discription === '[[], []]') {
+                        console.log(`updated the discription of ${element._id}`);
+                        col.updateOne({ "url1._id": o_id },
+                            {
+                                $set: {
+                                    "url2.discription": details
+                                }
+                            })
                     }
-                )
+                } catch (error) {
+                    console.log(error)
+                }
 
             }
             console.log(element)

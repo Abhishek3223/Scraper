@@ -16,13 +16,14 @@ const Dashbord = () => {
 
         setTimeout(() => {
             setLoading(false);
-        }, 2000);
+        }, 1000);
     }
     const { GetRepel, LoginStatus } = context;
 
     useEffect(() => {
         return async () => {
             if (localStorage.getItem('token')) {
+                // localStorage.removeItem('Product_data')
                 const data = await GetRepel()
                 await setrepel(data)
 

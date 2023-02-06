@@ -5,11 +5,11 @@ const ScrapingFunc = async (url) => {
 
     if (url && (url.slice(0, 18) == "https://www.amazon")) {
         console.log("going for amazon")
-        return amazonScraper(url);
+        return await amazonScraper(url);
     }
     else {
         console.log("going for flipkart");
-        return flipkartScraper(url);
+        return await flipkartScraper(url);
     }
 
 }

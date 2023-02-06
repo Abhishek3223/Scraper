@@ -160,8 +160,6 @@ const AuthState = (props) => {
     const EditNote = async (id_toEdit, newPrice) => {
 
         // api call to fetch data
-
-
         const response = await fetch(`${host}/api/notes/UpdateItem/${id_toEdit}`, {
             method: 'PUT',
             headers: {

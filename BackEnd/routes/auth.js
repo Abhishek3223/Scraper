@@ -8,7 +8,7 @@ var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchUSER = require('../Middleware/FtechUsers')
 const JWT_SECRET = "HELOOABHUSHEK%%";
-
+const sendEmail = require('../mail/mail')
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
 
@@ -30,7 +30,9 @@ router.post('/CreatUSER',
             return res.status(400).json({ errors: errors.array() });
         }
 
-        let user = await USER.findOne({ email: req.body.email });
+        let user = await USER.findOne({ email: req.body.email })
+        // .catch(err => { console.log(err) }
+        // );
 
         // checking if the user already exists or not 
         if ((user)) {
@@ -63,8 +65,12 @@ router.post('/CreatUSER',
                 }
                 const AUTH_TOKEN = jwt.sign(data, JWT_SECRET)
 
-                // console.log(user);
-                console.log(AUTH_TOKEN)
+
+                // const message = `${process.env.BASE_URL}/user/verify/${user.id}/${AUTH_TOKEN}`;
+                const message = `http://localhost:5000/api/auth/verify/${user.id}`;
+                await sendEmail(user.email, message);
+
+                // console.log(AUTH_TOKEN)
                 res.json({ AUTH_TOKEN, Success });
 
 
@@ -76,6 +82,25 @@ router.post('/CreatUSER',
 
         }
     })
+
+
+// ROute -email verification-------------------------
+router.get("/verify/:id", async (req, res) => {
+    try {
+        const user = await USER.findOne({ _id: req.params.id });
+        if (!user) return res.status(400).send("Invalid link--");
+
+
+        const result = await USER.findByIdAndUpdate(req.params.id, { $set: { "verfied": true } }, { new: true, upsert: true })
+
+        console.log(result)
+
+        res.send(result);
+    } catch (error) {
+        console.log(error)
+        res.status(400).send({ error });
+    }
+});
 
 //ROUTE 2: CREATING A LOGIN ENDPOINT ---AUTHENTICATE THE USER -----
 
@@ -128,7 +153,7 @@ router.post('/Login',
                     id: user.id
                 }
             }
-            
+
             const AUTH_TOKEN = jwt.sign(data, JWT_SECRET)
 
             // console.log(user);

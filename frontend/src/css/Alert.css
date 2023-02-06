@@ -123,10 +123,13 @@
   }
   100%{
     top: 3vh;
-
     opacity: 1;
   }
 }
 .opacity-zero {
   opacity: 0;
+}
+
+@media only screen and (max-width: 600px) {
+
 }

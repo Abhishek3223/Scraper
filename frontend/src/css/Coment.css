@@ -118,3 +118,31 @@ span > .calender {
   width: 50px;
   height: 50px;
 }
+
+@media only screen and (max-width: 600px) {
+  .comment-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    width: 100%;
+    margin: 0px;
+  }
+  .input-cmnt {
+    width: 80%;
+  }
+  .add-cmt-btn {
+    width: 27%;
+  }
+  .comments {
+    width: 90%;
+  }
+  .commmenter-name {
+    font-size: 18px;
+    margin-left: 24px;
+  }
+  .date {
+    font-size: 13px;
+  }
+}

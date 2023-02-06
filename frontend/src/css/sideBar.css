@@ -70,7 +70,7 @@
   color: #00adb5;
   margin-right: 10px;
 }
-.dash-img{
+.dash-img {
   color: #ffffff;
 }
 .item {
@@ -141,6 +141,12 @@ svg {
   color: aliceblue;
 }
 
-.menue-button{
+.menue-button {
   margin-left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
 }

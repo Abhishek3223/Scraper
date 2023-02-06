@@ -16,7 +16,7 @@ const ProductCard = (props) => {
     }
     const getImage = (link) => {
         if (link.slice(0, 18) === "https://www.amazon") { return "/images/amazon.png" }
-        else if (link.slice(0, 20) == "https://www.flipkart") { return "/images/flipkart.png" }
+        else if (link.slice(0, 20) === "https://www.flipkart") { return "/images/flipkart.png" }
         else { return 0 }
     }
     return (
@@ -29,29 +29,37 @@ const ProductCard = (props) => {
         >
 
             <div className='product-img'>
-                <img src="https://rukminim1.flixcart.com/image/416/416/l0fm07k0/mobile/a/6/b/-original-imagc7tdwfp2gz4h.jpeg?q=70" alt="" srcset="" />
+                <img src={props.data.url1.img[0]} alt="" srcset="" />
 
             </div>
             <div className="product-details">
                 <p className="prodcut-title">
-                    {props.data.title}
+                    {
+                        props.data.title.length > 85 ?
+                            (props.data.title).slice(0, 85) + "..." : props.data.title
+                    }
                 </p>
-                {/* <p className="prodcut-secondry-title">
-                    {props.data.title}
-                </p> */}
-                <div className="rating">
+                <p className="prodcut-secondry-title">
+                    {props.data.url1.timeData[0]}
+                    {/* 12-august 2019 */}
+                </p>
+                {/* <div className="rating">
                     ★4.3
 
-                </div>
+                </div> */}
                 <div className="details">
 
                     <div className="price-amazon">
                         {
-                            getImage(props.data.url1.link)?
+                            getImage(props.data.url1.link) ?
                                 <>
                                     <img src={getImage(props.data.url1.link)} alt="" srcset="" />
                                     <p className='product-price'>
                                         {props.data.url1.priceData[props.data.url1.priceData.length - 1]}
+                                        <span className='actual-price'>
+                                            {props.data.url1.actualPrice}
+
+                                        </span>
                                     </p>
                                 </>
 
@@ -69,6 +77,10 @@ const ProductCard = (props) => {
                                         {
                                             props.data.url2.priceData[props.data.url1.priceData.length - 1]
                                         }
+                                        <span className='actual-price'>
+                                            {props.data.url2.actualPrice}
+
+                                        </span>
                                     </p>
                                 </>
                                 : ""
