@@ -86,6 +86,7 @@ export const Comment = () => {
         });
         const res = Response.json();
         console.log(res);
+
         return res
 
     }
@@ -99,6 +100,9 @@ export const Comment = () => {
         const newCmt = await addComment(userName, m);
         console.log(newCmt);
         setloding(false)
+        if (newCmt) {
+            SetCommentData(((CommentData.reverse()).concat(newCmt)).reverse())
+        }
         // console.log(loading);
     }
     useEffect(() => {

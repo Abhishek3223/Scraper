@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
-// const mongoURI = "mongodb://localhost:27017/";
-const mongoURI = "mongodb+srv://abhishek_1212:ashuashu@cluster0.nhsofb8.mongodb.net/PriceComporator?retryWrites=true&w=majority"
+
+const mongoURI = `mongodb+srv://abhishek_1212:${process.env.PASSWORD}@cluster0.nhsofb8.mongodb.net/PriceComporator?retryWrites=true&w=majority`
 
 
-
-const conectToMongo=()=> {
+const conectToMongo = () => {
     mongoose.connect(mongoURI, () => {
         // insted o using  asycn and update we are using  call back function and we can also use async function
-        console.log('connected to mongo succesfully ')
-        
+        console.log(`connected to mongo succesfully `)
+
     }
     )
 }

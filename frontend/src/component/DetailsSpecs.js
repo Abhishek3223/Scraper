@@ -16,7 +16,7 @@ const DetailsSpecs = (props) => {
         const d2 = data.url2.link ? JSON.parse(data.url2.discription) : ""
         console.log(d1, d2);
 
-        if (d1 === [[], []]) { setDetailsSpecs(d2) } else { setDetailsSpecs(d1) }
+        if (data.url1.discription === '[[],[]]') { setDetailsSpecs(d2) } else { setDetailsSpecs(d1) }
         console.log(detailsSpecs);
 
     }, [])

@@ -75,7 +75,7 @@ const Login = (props) => {
           <button className='button' type="submit" >
             Log in
           </button>
-          <Link >
+          <Link to="signup" >
             {/* onClick={navigate('/signup')} */}
             <p className="dont-have-acnt">Create one ?</p>
           </Link>

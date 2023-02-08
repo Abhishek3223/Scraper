@@ -4,7 +4,7 @@ import AllContext from "./Context";
 
 const AuthState = (props) => {
     const host = "http://localhost:5000"
-
+    // alert part
     const [ShowAlert, SetAlert] = useState({
         status: false,
         message: "",
@@ -26,14 +26,54 @@ const AuthState = (props) => {
         }, 3000);
 
     }
+    // badge part
+    const [ShowBadge, SetBadge] = useState({
+        type: "",
+        status: false,
+        message: "",
+        // signal: "",
+
+    })
+    const ActivateBadge = (msg, sig) => {
+        SetBadge({
+            type: sig,
+            status: true,
+            message: msg,
+            // signal: sig,
+        })
+    }
+    const DeactivateBadge = (e) => {
+        if (e === 'e') {
+            // deactivate imidiattelly-------
+            console.log("immidiate")
+            SetBadge({
+                status: false,
+                message: "",
+                type: '',
+            })
+        }
+        else {
+            console.log("arm se")
+            setTimeout(() => {
+                SetBadge({
+                    status: false,
+                    message: "",
+                    type: '',
+
+                    // signal: "",
+                })
+            }, 3000);
+        }
+
+    }
 
     const [LoginStatus, setloginStatus] = useState(false);
     const [showFullMenue, setMenue] = useState(false);
 
     const Login = async (credentials) => {
         console.log(credentials);
-
-        const response = await fetch("http://localhost:5000/api/auth/Login", {
+        // ActivateBadge("loging you in", "loader")
+        const response = await fetch(`${host}/api/auth/Login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,9 +90,12 @@ const AuthState = (props) => {
         const json = await response.json()
         if (json.Success) {
             setloginStatus(true)
+            // ActivateBadge("succesfully s", "loader")
+            // DeactivateBadge('e')
             ActivateAlert("Succesfully loged in", "success")
         }
         else {
+            // DeactivateBadge('e')
             ActivateAlert("Invalid Credentials", "warning")
         }
         console.log(json);
@@ -63,7 +106,7 @@ const AuthState = (props) => {
     const SignUp = async (credentials) => {
         console.log(credentials);
 
-        const response = await fetch("http://localhost:5000/api/auth/CreatUSER", {
+        const response = await fetch(`${host}/api/auth/CreatUSER`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -94,7 +137,7 @@ const AuthState = (props) => {
     const Getuser = async () => {
         // post req for getting theuser info
 
-        const response = await fetch("http://localhost:5000/api/auth/GetUser", {
+        const response = await fetch(`${host}/api/auth/GetUser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -154,7 +197,7 @@ const AuthState = (props) => {
             }
         });
         const res = await Response.json();
-        setRepel(res);
+        setRepel(res.reverse());
         return res
     }
     const EditNote = async (id_toEdit, newPrice) => {
@@ -189,7 +232,7 @@ const AuthState = (props) => {
 
 
     return (
-        <AllContext.Provider value={{ LoginStatus, Login, setloginStatus, Getuser, showFullMenue, setMenue, ShowAlert, SetAlert, SignUp, Addrepel, GetRepel, ActivateAlert }}>
+        <AllContext.Provider value={{ ShowBadge, DeactivateBadge, ActivateBadge, LoginStatus, Login, setloginStatus, Getuser, showFullMenue, setMenue, ShowAlert, SetAlert, SignUp, Addrepel, GetRepel, ActivateAlert }}>
             {props.children}
         </AllContext.Provider>
 

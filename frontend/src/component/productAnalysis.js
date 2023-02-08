@@ -14,7 +14,7 @@ const ProductAnalysis = (props) => {
 
     const context = useContext(AllContext)
 
-    const { ActivateAlert } = context;
+    const { ActivateAlert, DeactivateBadge, ActivateBadge } = context;
     const [brand, setBrand] = useState(true);
     const [blur1, setBlurST1] = useState(false);
     const [blur2, setBlurST2] = useState(false);
@@ -52,8 +52,11 @@ const ProductAnalysis = (props) => {
     }
     const update = async () => {
         setloding(true);
+        ActivateBadge('updating the notify Price', 'loader')
         const res = await updateNotifyPrice();
-        ActivateAlert("succesfully updated the price", "success")
+        ActivateBadge('Succesfully updated the price', 'verify')
+        DeactivateBadge()
+        // ActivateAlert("Succesfully updated the price", "success")
         console.log(res);
         setloding(false);
     }
@@ -64,7 +67,7 @@ const ProductAnalysis = (props) => {
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('Product_data'))
         setAnalysisData(data)
-        console.log(data);
+        // console.log(data);
         // console.log(AnalysisData.offers);
     }, [])
 

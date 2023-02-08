@@ -1,3 +1,4 @@
 BackEnd/node_modules
+BackEnd/config.env
 frontend/node_modules
 Scraper/node_modules

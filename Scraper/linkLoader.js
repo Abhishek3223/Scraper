@@ -44,7 +44,7 @@ const run = async () => {
                     const newDiscountedPrice = (d.Discount_price)
                     var id = (element.url1._id).toString()
                     var o_id = new ObjectId(id);
-                    const offers = d.offers
+                    const offers = JSON.stringify(d.offers)
                     const details = JSON.stringify(d.Details)
                     console.log(details);
                     try {
@@ -87,7 +87,7 @@ const run = async () => {
                 const d = await ScrapingFunc(link);
                 const newPrice = (d.Discount_price)
                 const newDiscountedPrice = (d.Actual_price)
-                const offers = d.offers
+                const offers = JSON.stringify(d.offers)
                 const details = JSON.stringify(d.Details)
                 console.log(`details is`, details);
                 var id = (element.url2._id).toString()

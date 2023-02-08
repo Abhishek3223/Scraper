@@ -37,7 +37,7 @@ export default function MobileNav(props) {
                         </Link>
                     </li>
                     <li>
-                        <Link className={location === "/dashboard" ? 'background-phone Link' : 'Link'} to="/dashboard" onClick={() => (setChecked(false))} >
+                        <Link className={location === "/dashboard" ? 'background-phone Link' : 'Link'} to={localStorage.getItem('token') ? "/dashboard" : "/login"} onClick={() => (setChecked(false))} >
                             <span className='option-img'>
                                 <i className="fa-solid fa-chart-line fa-xs  dash-img"></i>
                             </span>
@@ -52,27 +52,37 @@ export default function MobileNav(props) {
                             </span>
                             <p className={`${showFullMenue ? 'item selected-para' : "display-none"} `}>Feedback</p></Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link className={location === "/productAnalysis" ? 'background-phone Link' : 'Link'} to="/productAnalysis" onClick={() => (setChecked(false))} >
                             <span className='option-img'>
                                 <i className="fa-regular fa-message fa-xs dash-img"></i>
                             </span>
                             <p className={`${showFullMenue ? 'item selected-para' : "display-none"} `}></p>
                         </Link>
-                    </li>
+                    </li> */}
                     <li >
-                        <Link className={location === "/" ? 'background-phone Link' : 'Link'} to="/productAnalysis" onClick={
-                            () => {
-                                localStorage.removeItem('token');
-                                setloginStatus(false);
-                                ActivateAlert("logged out", "warning")
-                            }
-                        } >
-                            <span className='option-img'>
-                                <i className="fa-regular fa-message fa-xs dash-img"></i>
-                            </span>
-                            <p className={`${showFullMenue ? 'item selected-para' : "display-none"} `}>Logout</p>
-                        </Link>
+                        {localStorage.getItem('token') ?
+                            <Link className={location === "/" ? 'background-phone Link' : 'Link'} to="/login" onClick={
+                                () => {
+                                    localStorage.removeItem('token');
+                                    setloginStatus(false);
+                                    ActivateAlert("logged out", "warning")
+                                }
+                            } >
+                                <span className='option-img'>
+                                    <i className="fa-regular fa-message fa-xs dash-img"></i>
+                                </span>
+                                <p className={`${showFullMenue ? 'item selected-para' : "display-none"} `}>Logout</p>
+                            </Link>
+                            :
+                            <Link className={location === "/" ? 'background-phone Link' : 'Link'} to="/login" onClick={() => (setChecked(false))} >
+                                <span className='option-img'>
+                                    <i className="fa-regular fa-message fa-xs dash-img"></i>
+                                </span>
+                                <p className={`${showFullMenue ? 'item selected-para' : "display-none"} `}>Login</p>
+                            </Link>
+                        }
+
                     </li>
 
                 </div>

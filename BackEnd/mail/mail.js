@@ -15,12 +15,10 @@ async function sendEmail(email, message) {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'scraptit007@gmail.com',
-            pass: 'ivaoilojraglvelc'
+            user: process.env.user,
+            pass: process.env.pass
         }
     });
-    console.log(viewpath)
-    console.log("      ")
 
     // point to the template folder
     const handlebarOptions = {
@@ -39,7 +37,7 @@ async function sendEmail(email, message) {
         subject: "Email verification ✔", // Subject line
         template: 'email', // the name of the template file i.e email.handlebars
         context: {
-            name: "Adebola", // replace {{name}} with Adebola
+            // replace {{name}} with Adebola
             Link: message // replace {{company}} with My Company
         }
     };

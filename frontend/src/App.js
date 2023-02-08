@@ -12,6 +12,7 @@ import Dashbord from './component/Dashbord';
 import Alert from './component/alert';
 import { Comment } from './component/Comment';
 import MobileNav from './component/mobileNabar';
+import Badges from './component/Badges';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
               <div className="navArea" >
                 <SeacrhBar changeWidth={toggleSideBarState} />
                 <Alert />
+                <Badges />
               </div>
 
               <div className='page-content'>

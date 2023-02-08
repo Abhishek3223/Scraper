@@ -75,7 +75,7 @@ const ProductCard = (props) => {
                                     <img src={getImage(props.data.url2.link)} alt="" srcset="" />
                                     <p className='product-price'>
                                         {
-                                            props.data.url2.priceData[props.data.url1.priceData.length - 1]
+                                            props.data.url2.priceData[props.data.url2.priceData.length - 1]
                                         }
                                         <span className='actual-price'>
                                             {props.data.url2.actualPrice}

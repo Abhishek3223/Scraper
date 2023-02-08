@@ -103,7 +103,7 @@ const flipkartScraper = (async (url) => {
         });
 
         browser.close();
-        console.log(productDetails);
+        // console.log(productDetails);
         return productDetails
 
     } catch (error) {
@@ -112,8 +112,6 @@ const flipkartScraper = (async (url) => {
             "Error at fs": error.message
         })
     }
-
-
 
 });
 

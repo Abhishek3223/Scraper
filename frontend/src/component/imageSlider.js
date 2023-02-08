@@ -13,8 +13,7 @@ const Carousel = (props) => {
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('Product_data'))
         set_item(data.url1.img)
-        console.log(data.url1.img);
-        console.log(_items);
+
     }, [])
     // eslint-disable-next-line react-hooks/rules-of-hooks
     let [count, setCount] = useState(0);

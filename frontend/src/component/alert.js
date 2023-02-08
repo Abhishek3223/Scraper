@@ -6,7 +6,7 @@ const Alert = () => {
     // const [ShowAlert, SetAlert] = useState(true)
     const contexts = useContext(AllContext)
     const { ShowAlert, SetAlert } = contexts;
-    console.log(ShowAlert);
+    // console.log(ShowAlert);
 
     return (
         <div className={ShowAlert.status ? "fade-in-image cont " : "opacity-zero cont"}>

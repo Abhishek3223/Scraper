@@ -1,8 +1,12 @@
+/* * {
+  transition: 1s;
+} */
 .navbar {
   background-color: #111827;
   height: 100%;
   margin: 0px;
   padding: 0px;
+  transition: 1s;
 }
 .logo {
   display: flex;

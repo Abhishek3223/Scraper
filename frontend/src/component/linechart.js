@@ -18,8 +18,8 @@ const Linechart = () => {
     }, [])
 
     const changeData = (d) => {
-       // console.log(d.url1.priceData,);
-       // console.log(d.url2.priceData,);
+        // console.log(d.url1.priceData,);
+        // console.log(d.url2.priceData,);
         setlabelData({
             labels: d.url1.timeData,
             datasets: [
@@ -147,7 +147,7 @@ const Linechart = () => {
     // }
 
     return (
-        <div style={{ 'width': '100%', 'height': "100%" }}>
+        <div >
             {/* <div className="but-changePeriod">
                 <button className={week ? 'bg-purple' : "bg-normal"} onClick={() => setChart('week')}>
                     last week

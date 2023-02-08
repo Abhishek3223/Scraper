@@ -45,22 +45,11 @@ const SeacrhBar = (props) => {
     return (
 
         <div className='container'>
-            {/* <div className='menue-button' onClick={changeWidth}>
-
-                <Burger />
-
-
-
-                
-            </div> */}                <MobileNav />
+            <MobileNav />
             <div className="title" style={{ "color": "white" }}>
-                {/* Scarpper<span style={{ "color": "orange" }}>.Store</span> */}
                 <img src="/images/siteLogo2.png" alt="" srcset="" />
             </div>
             <div className="authentication">
-                {/* <div className="searchBar">
-
-                </div> */}
                 <div className='buttons'>
 
                     {!(LoginStatus) ?

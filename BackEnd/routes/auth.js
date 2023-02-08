@@ -7,7 +7,7 @@ const { body, validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchUSER = require('../Middleware/FtechUsers')
-const JWT_SECRET = "HELOOABHUSHEK%%";
+const JWT_SECRET = process.env.JWT_SECRET;
 const sendEmail = require('../mail/mail')
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
@@ -64,10 +64,8 @@ router.post('/CreatUSER',
                     }
                 }
                 const AUTH_TOKEN = jwt.sign(data, JWT_SECRET)
-
-
-                // const message = `${process.env.BASE_URL}/user/verify/${user.id}/${AUTH_TOKEN}`;
-                const message = `http://localhost:5000/api/auth/verify/${user.id}`;
+             
+                const message = `${process.env.link}/api/auth/verify/${user.id}`;
                 await sendEmail(user.email, message);
 
                 // console.log(AUTH_TOKEN)
@@ -75,7 +73,7 @@ router.post('/CreatUSER',
 
 
             } catch (error) {
-                console.log(`Error occouerd !! -- ${error}`);
+                console.log({ "Error occouerd !!": error });
             }
 
             console.log("success");
@@ -161,7 +159,8 @@ router.post('/Login',
             res.json({ AUTH_TOKEN, Success })
 
         } catch (error) {
-            console.log("Eroor occoured !!")
+            console.log({ "Error occouerd !!": error });
+
             res.status(400).json(error)
         }
 
@@ -176,7 +175,8 @@ router.post('/GetUser', fetchUSER, async (req, res) => {
         const user = await USER.findById(userId).select("-password")
         res.send(user)
     } catch (error) {
-        console.log("Error occoured !!")
+        console.log({ "Error occouerd !!": error });
+
         res.status(401).json(error)
     }
 

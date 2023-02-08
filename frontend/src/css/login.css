@@ -13,15 +13,14 @@ html, body {
     background: #f3f2f2;
 } */
 
-
 .loginpage {
-    margin-top: 15vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    /* padding: 25%; */
+  margin-top: 15vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  /* padding: 25%; */
 }
 .session {
   /* width: 50%; */
@@ -241,12 +240,18 @@ input:focus {
   margin-top: -20px;
 }
 .cross {
-    z-index: 5;
-    /* background-color: #b08bf8; */
-    position: absolute;
-    top: -6%;
-    right: -7%;
+  z-index: 5;
+  /* background-color: #b08bf8; */
+  position: absolute;
+  top: -6%;
+  right: -7%;
 }
-.display-none{
+.display-none {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .left {
     display: none;
+  }
 }

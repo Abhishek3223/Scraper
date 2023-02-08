@@ -3,14 +3,16 @@ import ProductCard from '../component/productCard';
 import Newcomp from './Newcomp';
 import AllContext from '../context/notes/Context'
 import "../css/Dashboard.css"
+import { useNavigate } from "react-router-dom"
 import { Loader } from './loader';
 import { Loaderr } from './loader';
+import Badges from './Badges';
 
 
 const Dashbord = () => {
+    const navigate = useNavigate();
     const context = useContext(AllContext)
     const [repel, setrepel] = useState([])
-
     const [isloading, setLoading] = useState(true);
     const changeLoading = () => {
 
@@ -18,20 +20,30 @@ const Dashbord = () => {
             setLoading(false);
         }, 1000);
     }
-    const { GetRepel, LoginStatus } = context;
+    const { GetRepel, Getuser, ActivateAlert, ActivateBadge } = context;
 
     useEffect(() => {
         return async () => {
             if (localStorage.getItem('token')) {
-                // localStorage.removeItem('Product_data')
-                const data = await GetRepel()
-                await setrepel(data)
-
-                if (await data) {
-                    console.log("chnanging the is Loading");
-                    changeLoading();
+                const response = await Getuser();
+                if (response.verfied) {
+                    const data = await GetRepel()
+                    setrepel(data)
+                    if (await data) {
+                        changeLoading();
+                    }
                 }
-                console.log(repel)
+                else {
+                    ActivateAlert("login first !!", "warning")
+                    ActivateBadge("Your aaccounbt is not verifed Please verify your account First", "verify-mail")
+                    changeLoading();
+                    // navigate("/login")
+                }
+
+            }
+            else {
+                ActivateAlert("login first !!", "warning")
+                navigate("/login")
             }
         }
 
@@ -39,7 +51,6 @@ const Dashbord = () => {
     }, [])
     return (
         <div className='Dashbord'>
-
             <Newcomp />
 
             <div className="present-comp">
