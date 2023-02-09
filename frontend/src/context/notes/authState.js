@@ -3,7 +3,9 @@ import AllContext from "./Context";
 
 
 const AuthState = (props) => {
-    const host = "http://localhost:5000"
+    // const host = "http://localhost:5000"
+    const host = process.env.REACT_APP_HOST 
+    console.log(host)
     // alert part
     const [ShowAlert, SetAlert] = useState({
         status: false,
