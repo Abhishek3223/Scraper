@@ -50,6 +50,7 @@ const ProductAnalysis = (props) => {
             });
         console.log(await Response.json());
     }
+    
     const update = async () => {
         setloding(true);
         ActivateBadge('updating the notify Price', 'loader')

@@ -24,7 +24,8 @@ const compSchema = new Schema({
         type: String,
     },
     notifyPrice: {
-        type: String
+        type: String,
+        require: true
     },
     url1: {
         type: urlSchema,

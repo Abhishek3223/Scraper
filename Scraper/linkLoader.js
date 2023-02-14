@@ -33,7 +33,12 @@ const run = async () => {
 
 
         data.forEach(async element => {
-            // console.log(element);
+            // notification mail------------------
+
+            // if (element.notifyPrice) {
+            //     sendEmail()
+            // }
+
             if (element.url1.link) {
 
                 const link = element.url1.link

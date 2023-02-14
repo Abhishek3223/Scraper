@@ -31,8 +31,6 @@ router.post('/CreatUSER',
         }
 
         let user = await USER.findOne({ email: req.body.email })
-        // .catch(err => { console.log(err) }
-        // );
 
         // checking if the user already exists or not 
         if ((user)) {
