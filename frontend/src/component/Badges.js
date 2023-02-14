@@ -2,10 +2,13 @@ import { React, useContext } from 'react'
 import '../css/badge.css'
 import AllContext from '../context/notes/Context'
 import { Loaderr } from './loader'
-import { Verify } from '../images/image'
+import { useNavigate } from "react-router-dom"
+// import { Verify } from '../images/image'
 
 const Badges = () => {
     const contexts = useContext(AllContext)
+    const navigate = useNavigate();
+
     const { ShowBadge, DeactivateBadge } = contexts;
     return (
 
@@ -16,7 +19,8 @@ const Badges = () => {
                         ShowBadge.type === 'loader' && ShowBadge.status ? < Loaderr /> : ""
                     }
                     {
-                        ShowBadge.type === 'verify' && ShowBadge.status ? <i style={{ color: "#00adb5" }} class="fa-solid fa-4x fa-circle-check"></i> : ""
+                        ((ShowBadge.type === 'verify' || ShowBadge.type === 'verify-mail') && ShowBadge.status)
+                            ? <i style={{ color: "#00adb5" }} class="fa-solid fa-4x fa-circle-check"></i> : ""
                     }
 
 
@@ -35,13 +39,23 @@ const Badges = () => {
 
 
                 }
-
+                {
+                    ShowBadge.type === 'verify-mail' ? <div div className="btn btn-first" onClick={
+                        // verifaction of mail if okay sen d a mail 
+                        () => {
+                            navigate('/')
+                        }
+                    }>
+                        verify
+                    </div> : ""
+                }
                 {
                     // ShowBadge.second &&
                     ShowBadge.status && <div div className="btn btn-second" onClick={
                         () => {
                             DeactivateBadge('e');
                             console.log("clicked");
+
                         }
 
                     }>

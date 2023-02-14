@@ -1,5 +1,5 @@
 const path = require('path')
-require('dotenv').config({ path: path.resolve(__dirname, './config.env') })
+require('dotenv').config({ path: path.resolve(__dirname, './process.env') })
 
 
 const conectToMongo = require("./db")
@@ -12,6 +12,7 @@ const { send } = require('process');
 const app = Express()
 app.use(cors())
 const port = 5000
+
 
 app.use(Express.json())
 // availabe rotes

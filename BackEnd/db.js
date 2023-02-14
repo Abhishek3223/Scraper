@@ -5,6 +5,7 @@ const mongoURI = `mongodb+srv://abhishek_1212:${process.env.PASSWORD}@cluster0.n
 
 const conectToMongo = () => {
     mongoose.connect(mongoURI, () => {
+
         // insted o using  asycn and update we are using  call back function and we can also use async function
         console.log(`connected to mongo succesfully `)
 

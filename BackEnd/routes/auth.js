@@ -62,7 +62,7 @@ router.post('/CreatUSER',
                     }
                 }
                 const AUTH_TOKEN = jwt.sign(data, JWT_SECRET)
-             
+
                 const message = `${process.env.link}/api/auth/verify/${user.id}`;
                 await sendEmail(user.email, message);
 
@@ -81,6 +81,19 @@ router.post('/CreatUSER',
 
 
 // ROute -email verification-------------------------
+
+// router.get("sendMail", async (req, res) => {
+//     try {
+// const message = `${process.env.link}/api/auth/verify/${user.id}`;
+// await sendEmail(user.email, message);
+//     } catch (error) {
+//         console.log(error)
+//         res.status(400).send({ error });
+//     }
+// })
+
+
+
 router.get("/verify/:id", async (req, res) => {
     try {
         const user = await USER.findOne({ _id: req.params.id });
@@ -130,7 +143,7 @@ router.post('/Login',
                         "error": "please try again invalid credetials"
                     })
             }
-
+            console.log(user);
             //  if the user exists compare the two password
             const compareResults = await bcrypt.compare(password, user.password)
             // here compare(entered_password,hash_password_stored)

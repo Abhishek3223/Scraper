@@ -26,6 +26,7 @@ const Dashbord = () => {
         return async () => {
             if (localStorage.getItem('token')) {
                 const response = await Getuser();
+                console.log(response);
                 if (response.verfied) {
                     const data = await GetRepel()
                     setrepel(data)
@@ -34,7 +35,7 @@ const Dashbord = () => {
                     }
                 }
                 else {
-                    ActivateAlert("login first !!", "warning")
+                    // ActivateAlert("login first !!", "warning")
                     ActivateBadge("Your aaccounbt is not verifed Please verify your account First", "verify-mail")
                     changeLoading();
                     // navigate("/login")

@@ -83,7 +83,7 @@
 .btn-first {
   transition: 1s;
   /* background-color: rgb(61, 109, 74); */
-  border: 1px solid #00adb5;
+  border: 2px solid #00adb5;
 }
 .btn-first:hover {
   background-color: #00adb5;
@@ -93,6 +93,7 @@
   color: rgb(255, 255, 255);
   margin-left: 10px;
 }
+
 .scale-up-center {
   -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
     both;

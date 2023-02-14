@@ -4,7 +4,7 @@ import AllContext from "./Context";
 
 const AuthState = (props) => {
     // const host = "http://localhost:5000"
-    const host = process.env.REACT_APP_HOST 
+    const host = process.env.REACT_APP_HOST
     console.log(host)
     // alert part
     const [ShowAlert, SetAlert] = useState({
@@ -28,7 +28,9 @@ const AuthState = (props) => {
         }, 3000);
 
     }
-    // badge part
+    // badge part----------------------------------------------------------------------------------
+
+
     const [ShowBadge, SetBadge] = useState({
         type: "",
         status: false,
@@ -48,7 +50,7 @@ const AuthState = (props) => {
         if (e === 'e') {
             // deactivate imidiattelly-------
             console.log("immidiate")
-            SetBadge({
+            return SetBadge({
                 status: false,
                 message: "",
                 type: '',
@@ -56,7 +58,7 @@ const AuthState = (props) => {
         }
         else {
             console.log("arm se")
-            setTimeout(() => {
+            return setTimeout(() => {
                 SetBadge({
                     status: false,
                     message: "",
@@ -68,6 +70,9 @@ const AuthState = (props) => {
         }
 
     }
+
+
+    // -----------------------------------------------------------
 
     const [LoginStatus, setloginStatus] = useState(false);
     const [showFullMenue, setMenue] = useState(false);
