@@ -115,7 +115,7 @@ const flipkartScraper = (async (url) => {
 
 });
 
-flipkartScraper("https://www.flipkart.com/xiaomi-11i-5g-stealth-black-128-gb/p/itm8f69666fd662e?pid=MOBG9QXP5NVYGGHY&lid=LSTMOBG9QXP5NVYGGHYSMMSFL&marketplace=FLIPKART&fm=productRecommendation%2Fsimilar&iid=R%3As%3Bp%3AMOBG9QXPWYHJ99GV%3Bpt%3App%3Buid%3Aeb94ea7e-7489-11ed-b005-2de9e8854495%3B.MOBG9QXP5NVYGGHY&ppt=pp&ppn=pp&ssid=jyq7kvtjuo0000001670237114134&otracker=pp_reco_Similar%2BProducts_6_34.productCard.PMU_HORIZONTAL_Xiaomi%2B11i%2B5G%2B%2528Stealth%2BBlack%252C%2B128%2BGB%2529_MOBG9QXP5NVYGGHY_productRecommendation%2Fsimilar_5&otracker1=pp_reco_PINNED_productRecommendation%2Fsimilar_Similar%2BProducts_GRID_productCard_cc_6_NA_view-all&cid=MOBG9QXP5NVYGGHY&ocmpid=BrandAd_Mi_Xiaomi11i5G_Mid-life_Google_Paid_SEM_GenKW_20221205&gclid=CjwKCAiAzKqdBhAnEiwAePEjkuYK1NU6U0kHjzIp_T9XZO--Sd4N-wN_4T8-Xi0KKxMuN8hG2hATQxoCoksQAvD_BwE")
+// flipkartScraper("https://www.flipkart.com/xiaomi-11i-5g-stealth-black-128-gb/p/itm8f69666fd662e?pid=MOBG9QXP5NVYGGHY&lid=LSTMOBG9QXP5NVYGGHYSMMSFL&marketplace=FLIPKART&fm=productRecommendation%2Fsimilar&iid=R%3As%3Bp%3AMOBG9QXPWYHJ99GV%3Bpt%3App%3Buid%3Aeb94ea7e-7489-11ed-b005-2de9e8854495%3B.MOBG9QXP5NVYGGHY&ppt=pp&ppn=pp&ssid=jyq7kvtjuo0000001670237114134&otracker=pp_reco_Similar%2BProducts_6_34.productCard.PMU_HORIZONTAL_Xiaomi%2B11i%2B5G%2B%2528Stealth%2BBlack%252C%2B128%2BGB%2529_MOBG9QXP5NVYGGHY_productRecommendation%2Fsimilar_5&otracker1=pp_reco_PINNED_productRecommendation%2Fsimilar_Similar%2BProducts_GRID_productCard_cc_6_NA_view-all&cid=MOBG9QXP5NVYGGHY&ocmpid=BrandAd_Mi_Xiaomi11i5G_Mid-life_Google_Paid_SEM_GenKW_20221205&gclid=CjwKCAiAzKqdBhAnEiwAePEjkuYK1NU6U0kHjzIp_T9XZO--Sd4N-wN_4T8-Xi0KKxMuN8hG2hATQxoCoksQAvD_BwE")
 
 
 

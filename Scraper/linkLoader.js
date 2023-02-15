@@ -1,8 +1,15 @@
-var url = "mongodb+srv://abhishek_1212:ashuashu@cluster0.nhsofb8.mongodb.net?retryWrites=true&w=majority";
+
+
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, './process.env') })
+// console.log(process.env.PASSWORD);
+var url = `mongodb+srv://abhishek_1212:${process.env.PASSWORD}@cluster0.nhsofb8.mongodb.net?retryWrites=true&w=majority`
 
 const { MongoClient } = require("mongodb");
+const sendEmail = require("./mail/mail");
 
-var ScrapingFunc = require('./Scraper')
+var ScrapingFunc = require('./Scraper');
+const { log } = require('console');
 var ObjectId = require('mongodb').ObjectId;
 
 
@@ -34,10 +41,8 @@ const run = async () => {
 
         data.forEach(async element => {
             // notification mail------------------
-
-            // if (element.notifyPrice) {
-            //     sendEmail()
-            // }
+            let price1 = 0;
+            let price2 = 0;
 
             if (element.url1.link) {
 
@@ -46,12 +51,13 @@ const run = async () => {
                 // console.log(d);
                 if (d.Actual_price) {
                     const newPrice = (d.Actual_price)
+                    price1 = newPrice;
                     const newDiscountedPrice = (d.Discount_price)
                     var id = (element.url1._id).toString()
                     var o_id = new ObjectId(id);
                     const offers = JSON.stringify(d.offers)
                     const details = JSON.stringify(d.Details)
-                    console.log(details);
+                    // console.log(details);
                     try {
                         col.updateOne({ "url1._id": o_id },
                             {
@@ -90,7 +96,8 @@ const run = async () => {
 
                 const link = element.url2.link
                 const d = await ScrapingFunc(link);
-                const newPrice = (d.Discount_price)
+                const newPrice = (d.Discount_price);
+                price2 = newPrice
                 const newDiscountedPrice = (d.Actual_price)
                 const offers = JSON.stringify(d.offers)
                 const details = JSON.stringify(d.Details)
@@ -127,10 +134,21 @@ const run = async () => {
                                 }
                             })
                     }
+
+
                 } catch (error) {
                     console.log(error)
                 }
 
+            }
+            if ((element.notifyPrice >= price1 || element.notifyPrice >= price2)&& element.notifyStatus ) {
+                
+                const collection = db.collection("user_objs")
+                const elem = await collection.findOne({ "_id": element.user })
+                // console.log(elem.email);
+                const link1 = element.url1.Link;
+                const link2 = element.url2.link;
+                sendEmail(elem.email, price1, link1, price2, link2)
             }
             console.log(element)
 

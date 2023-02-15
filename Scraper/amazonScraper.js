@@ -102,7 +102,7 @@ const amazonScraper = (async (url) => {
 
             return obj;
         });
-        console.log(productDetails);
+        // console.log(productDetails);
         browser.close();
         // console.log()
         return productDetails
