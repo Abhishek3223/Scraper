@@ -18,7 +18,7 @@ app.use(Express.json())
 // availabe rotes
 app.get('/', function (req, res) {
     console.log("/user request called");
-    res.send('welcome to scraper backend');
+    res.send('welcome to scraper backend').status(200);
 });
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
