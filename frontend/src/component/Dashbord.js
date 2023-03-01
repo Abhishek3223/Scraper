@@ -35,10 +35,8 @@ const Dashbord = () => {
                     }
                 }
                 else {
-                    // ActivateAlert("login first !!", "warning")
                     ActivateBadge("Your aaccounbt is not verifed Please verify your account First", "verify-mail")
                     changeLoading();
-                    // navigate("/login")
                 }
 
             }

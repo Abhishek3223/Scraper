@@ -70,8 +70,8 @@ const Home = () => {
 
                         {templateArray[0]}
                     </p>
-                    <div id="container">
-                        <button class="learn-more">
+                    <div id="container" onclick={movetoDashboard}>
+                        <button class="learn-more" >
                             <span class="circle" aria-hidden="true">
                                 <span class="icon arrow"></span>
                             </span>

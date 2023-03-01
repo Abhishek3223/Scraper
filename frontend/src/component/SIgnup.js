@@ -44,14 +44,15 @@ const SignUp = (props) => {
         <div className='loginpage'>
             <div className={"session"}>
 
-                <div className="left">
-                    {/* <Cross /> */}
-                </div>
+
 
                 <form onSubmit={handleSubmit} action="" className="log-in" >
-                    <div className="cross" onClick={gobacktoHome}>
-                        <Cross />
+                    <div className='logo_part'>
+                        <img src="/logo/logo2.png" alt="" srcset="" />
                     </div>
+                    {/* <div className="cross" onClick={gobacktoHome}>
+                        <Cross />
+                    </div> */}
                     <h4> Hi We are <span>Scraper</span></h4>
                     <p>We welcome you to our communitie</p>
                     <div className="floating-label">
@@ -89,7 +90,13 @@ const SignUp = (props) => {
           </Link> */}
                 </form>
             </div>
-
+            <div className="sidepart">
+                <div class="ocean">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </div>
         </div>
     )
 }

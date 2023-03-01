@@ -17,9 +17,11 @@ const SideBar = (props) => {
         setMenue(!(showFullMenue));
         props.changeWidth()
     }
-
+    console.log(location)
+    console.log(('/' || '/login' || '/signup'))
     return (
-        <div className={location === ('/' || '/login' || 'signup') ? "display-none" : 'navbar'} >
+        <div className={(location === '/') || (location === '/login') || (location === '/signup') ? "display-none" : 'navbar'
+        } >
 
             <div className='ul'>
                 <div className='li'>
@@ -84,7 +86,7 @@ const SideBar = (props) => {
                     <p className={`${showFullMenue ? ' item logout-para' : "display-none"} `}>Logout</p>
                 </Link>
             </div>
-        </div>
+        </div >
 
     )
 }

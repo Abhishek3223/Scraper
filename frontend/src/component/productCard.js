@@ -10,10 +10,11 @@ const ProductCard = (props) => {
     const navigate = useNavigate();
 
     const { setAnalysisData } = context;
-    const title = props.data.title
-    for (let index = 0; index < title.length; index++) {
-        const element = title[index];
-    }
+    const title = props.data.title;
+    console.log(title);
+    // for (let index = 0; index < title.length; index++) {
+    //     const element = title[index];
+    // }
     const getImage = (link) => {
         if (link.slice(0, 18) === "https://www.amazon") { return "/images/amazon.png" }
         else if (link.slice(0, 20) === "https://www.flipkart") { return "/images/flipkart.png" }

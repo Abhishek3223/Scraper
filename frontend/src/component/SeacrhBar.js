@@ -11,7 +11,7 @@ import MobileNav from './mobileNabar';
 const SeacrhBar = (props) => {
 
     const navigate = useNavigate();
-    const location = useLocation()
+    const location = useLocation().pathname;
     const context = useContext(AllContext)
     const { LoginStatus, setloginStatus, Getuser } = context;
 
@@ -44,10 +44,10 @@ const SeacrhBar = (props) => {
 
     return (
 
-        <div className={location.pathname === '/' ? "display-none" : 'container'}>
+        <div className={(location === '/') || (location === '/login') || (location === '/signup') ? "display-none" : 'container'}>
             <MobileNav />
             <div className="title" style={{ "color": "white" }}>
-                <img src="/images/siteLogo2.png" alt="" srcset="" />
+                <img src="/logo/Logo2.png" alt="" srcset="" />
             </div>
             <div className="authentication">
                 <div className='buttons'>
