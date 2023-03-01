@@ -1,5 +1,5 @@
 import { React, useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../css/searchBar.css'
 import AllContext from '../context/notes/Context'
 // import { Menue } from '../images/image'
@@ -11,7 +11,7 @@ import MobileNav from './mobileNabar';
 const SeacrhBar = (props) => {
 
     const navigate = useNavigate();
-
+    const location = useLocation()
     const context = useContext(AllContext)
     const { LoginStatus, setloginStatus, Getuser } = context;
 
@@ -30,12 +30,12 @@ const SeacrhBar = (props) => {
     useEffect(() => {
         return async () => {
             if (localStorage.token) {
+                console.log(location);
 
                 const response = await Getuser();
                 setitle(response.name)
                 setmail(response.email)
                 setloginStatus(true)
-
             }
         }
     }, [LoginStatus])
@@ -44,7 +44,7 @@ const SeacrhBar = (props) => {
 
     return (
 
-        <div className='container'>
+        <div className={location.pathname === '/' ? "display-none" : 'container'}>
             <MobileNav />
             <div className="title" style={{ "color": "white" }}>
                 <img src="/images/siteLogo2.png" alt="" srcset="" />
@@ -82,7 +82,7 @@ const SeacrhBar = (props) => {
                     }
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

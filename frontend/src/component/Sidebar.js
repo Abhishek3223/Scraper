@@ -5,7 +5,7 @@ import { Logo, Home, DashboardImage } from '../images/image';
 import { Link, useLocation } from 'react-router-dom'
 import Logout from '../images/logout';
 import Burger from './burger';
- 
+
 const SideBar = (props) => {
 
     const location = useLocation().pathname;
@@ -19,7 +19,7 @@ const SideBar = (props) => {
     }
 
     return (
-        <div className='navbar'>
+        <div className={location === ('/' || '/login' || 'signup') ? "display-none" : 'navbar'} >
 
             <div className='ul'>
                 <div className='li'>

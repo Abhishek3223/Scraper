@@ -40,14 +40,15 @@ const Badges = () => {
 
                 }
                 {
-                    ShowBadge.type === 'verify-mail' ? <div div className="btn btn-first" onClick={
-                        // verifaction of mail if okay sen d a mail 
-                        () => {
-                            navigate('/')
-                        }
-                    }>
-                        verify
-                    </div> : ""
+                    ShowBadge.type === 'verify-mail' ?
+                        <div div className="btn btn-first" onClick={
+                            // verifaction of mail if okay sen d a mail 
+                            () => {
+                                navigate('/')
+                            }
+                        }>
+                            verify
+                        </div> : ""
                 }
                 {
                     // ShowBadge.second &&

@@ -31,6 +31,9 @@ li {
   /* padding: 0.5%; */
   margin: 0.5%;
 }
+.display-none {
+  display: none;
+}
 .display-content {
   width: 95%;
   margin: 0px;
