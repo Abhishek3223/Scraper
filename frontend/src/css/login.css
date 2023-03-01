@@ -297,6 +297,19 @@ body {
   form {
     width: 85vw;
     background: #f1f1f100;
-
   }
+}
+
+.blinker {
+  position: absolute;
+  top: 10vh;
+  left: 17vw;
+}
+.blinker h1 {
+  width: 46vw;
+  text-align: left;
+  font-size: 4vh;
+  color: #00adb5;
+  /* border: 1px solid red; */
+  font-weight: 500;
 }

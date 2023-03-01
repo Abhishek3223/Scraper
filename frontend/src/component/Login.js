@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import AllContext from '../context/notes/Context'
 import '../css/login.css'
 import { Cross, Mail } from '../images/image'
+import TypeWritter from './typeWriter'
 
 const Login = (props) => {
 
@@ -39,6 +40,11 @@ const Login = (props) => {
     })
     console.log(credentials)
   }
+  const labels = ["Never miss a sale again and save money effortlessly with our price tracking and reminder site. Because every penny saved is a penny earned.",
+    "Shop smarter and stay on budget with our easy-to-use price tracking and reminder site. Start saving on your favorite products today.",
+    "Take the guesswork out of online shopping with our price tracking and reminder site. Get the best deals and save time and money.",
+    "Get the most bang for your buck with our price tracking and reminder site. Shop smart and never overpay again for your desired products.",
+    "Maximize your savings potential with our price tracking and reminder site. It's like having a personal shopping assistant in your pocket."]
   return (
     <div className='loginpage'>
       <div className="session"  >
@@ -81,6 +87,9 @@ const Login = (props) => {
         </form>
       </div>
       <div className="sidepart">
+        <div className="blinker">
+          <TypeWritter word={labels} />
+        </div>
         <div class="ocean">
           <div class="wave"></div>
           <div class="wave"></div>
