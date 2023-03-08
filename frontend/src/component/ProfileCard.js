@@ -5,7 +5,7 @@ const ProfileCard = () => {
 
         <div className="profile-card">
             <div className="img">
-                <img src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGZhY2V8ZW58MHwyfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+                <img src="https://media.licdn.com/dms/image/D4D03AQHpIaeOsFeEKA/profile-displayphoto-shrink_800_800/0/1673390435553?e=1683763200&v=beta&t=5E04uLIaL7_6P_4FX0xwizEzep24N_vBD6smHNB56lk" />
             </div>
             <div className="infos">
                 <div className="name">

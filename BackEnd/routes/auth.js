@@ -102,8 +102,6 @@ router.get("/verify/:id", async (req, res) => {
 
         const result = await USER.findByIdAndUpdate(req.params.id, { $set: { "verfied": true } }, { new: true, upsert: true })
 
-        console.log(result)
-
         res.send(result);
     } catch (error) {
         console.log(error)
@@ -166,7 +164,6 @@ router.post('/Login',
             const AUTH_TOKEN = jwt.sign(data, JWT_SECRET)
 
             // console.log(user);
-            console.log(AUTH_TOKEN)
             res.json({ AUTH_TOKEN, Success })
 
         } catch (error) {

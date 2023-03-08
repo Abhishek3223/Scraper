@@ -11,7 +11,7 @@ import SignUp from './component/SIgnup';
 import Dashbord from './component/Dashbord';
 import Alert from './component/alert';
 import { Comment } from './component/Comment';
-import MobileNav from './component/mobileNabar';
+// import MobileNav from './component/mobileNabar';
 import Badges from './component/Badges';
 
 function App() {

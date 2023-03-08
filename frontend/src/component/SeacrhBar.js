@@ -47,7 +47,7 @@ const SeacrhBar = (props) => {
         <div className={(location === '/') || (location === '/login') || (location === '/signup') ? "display-none" : 'container'}>
             <MobileNav />
             <div className="title" style={{ "color": "white" }}>
-                <img src="/logo/Logo2.png" alt="" srcset="" />
+                <img src="/logo/Logo2.png" alt="" srcSet="" />
             </div>
             <div className="authentication">
                 <div className='buttons'>

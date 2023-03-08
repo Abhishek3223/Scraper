@@ -5,8 +5,8 @@ import AllContext from '../context/notes/Context'
 import "../css/Dashboard.css"
 import { useNavigate } from "react-router-dom"
 import { Loader } from './loader';
-import { Loaderr } from './loader';
-import Badges from './Badges';
+// import { Loaderr } from './loader';
+// import Badges from './Badges';
 
 
 const Dashbord = () => {

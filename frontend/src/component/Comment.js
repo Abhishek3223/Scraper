@@ -15,7 +15,8 @@ export const Comment = () => {
     const [CommentData, SetCommentData] = useState([])
     const context = useContext(AllContext)
     const { Getuser } = context;
-
+    const host = process.env.REACT_APP_HOST
+    
     const CommentBox = (props) => {
 
         return (
@@ -55,7 +56,7 @@ export const Comment = () => {
     }
     const getComment = async () => {
 
-        const Response = await fetch(`http://localhost:5000/api/comment/getComment`, {
+        const Response = await fetch(`${host}/api/comment/getComment`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

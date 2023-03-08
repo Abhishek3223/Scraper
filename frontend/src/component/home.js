@@ -7,7 +7,7 @@ import { SvgComponent, SvgComponent1 } from '../images/undraw';
 
 const Home = () => {
     const context = useContext(AllContext)
-    const { LoginStatus, setloginStatus, Getuser } = context;
+    const { LoginStatus, setloginStatus } = context;
     const login = () => {
         navigate('/login')
     }
@@ -44,7 +44,7 @@ const Home = () => {
             </div>
             <div className="home_nav">
                 <div className="home_logo">
-                    <img src="/images/sitelogo3.png" alt="" srcset="" />
+                    <img src="/logo/logo2.png" alt="" srcset="" />
                 </div>
 
                 <div className="authentication">
