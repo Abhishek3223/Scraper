@@ -3,7 +3,6 @@ const router = Express.Router();
 const USER = require("../models/userSchema")
 var bodyParser = require('body-parser')
 const { body, validationResult } = require('express-validator');
-
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchUSER = require('../Middleware/FtechUsers')
@@ -52,7 +51,7 @@ router.post('/CreatUSER',
                 // this is new user creation 
                 user = await USER.create({
                     name: req.body.name,
-                    password: secPass, // here instead of usig the passsword we are using the after addign salt and incrypting it....
+                    password: secPass, // here instead of usig the passsword we are using the after adding salt and incrypting it....
                     email: req.body.email
 
                 })

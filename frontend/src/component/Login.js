@@ -24,7 +24,7 @@ const Login = (props) => {
 
     setLoader(true);
     const json = await Login(credentials)
-    console.log(json)
+
     if (json.Success) {
       localStorage.setItem('token', json.AUTH_TOKEN);
       setloginStatus(true)
@@ -42,7 +42,7 @@ const Login = (props) => {
     setCredentials({
       ...credentials, [e.target.name]: [e.target.value]
     })
-    console.log(credentials)
+
   }
   const labels = ["Never miss a sale again and save money effortlessly with our price tracking and reminder site. Because every penny saved is a penny earned.",
     "Shop smarter and stay on budget with our easy-to-use price tracking and reminder site. Start saving on your favorite products today.",

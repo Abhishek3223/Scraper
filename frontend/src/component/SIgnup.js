@@ -32,7 +32,7 @@ const SignUp = (props) => {
         setLoader(true);
 
         const json = await SignUp(credentials)
-        console.log(json)
+        // console.log(json)
         if (json.Success) {
             alert("succcessfully Loged In success")
             navigate('/login')
@@ -49,7 +49,7 @@ const SignUp = (props) => {
         setCredentials({
             ...credentials, [e.target.name]: [e.target.value]
         })
-        console.log(credentials)
+        // console.log(credentials)
     }
     return (
         <div className='loginpage'>

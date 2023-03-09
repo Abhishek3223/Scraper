@@ -17,8 +17,7 @@ const SideBar = (props) => {
         setMenue(!(showFullMenue));
         props.changeWidth()
     }
-    console.log(location)
-    console.log(('/' || '/login' || '/signup'))
+
     return (
         <div className={(location === '/') || (location === '/login') || (location === '/signup') ? "display-none" : 'navbar'
         } >
@@ -54,12 +53,12 @@ const SideBar = (props) => {
                         <p className={`${showFullMenue ? 'item selected-para' : "display-none"} `}>Feedback</p>
                     </Link>
                 </div>
-                <div className='li'>
+                {/* <div className='li'>
                     <Link to="/productAnalysis" className={location === "/productAnalysis" ? "active selected-item" : "active"}>
                         <span className='option-img'> <Home /></span>
                         <p className={`${showFullMenue ? 'item selected-para' : "display-none"} `}></p>
                     </Link>
-                </div>
+                </div> */}
                 {/* <div className='li'>
                     <Link to="/" className={location === "/dashboard" ? "active selected-item" : "active"}>
                         <span className='option-img'> <Home /></span>
