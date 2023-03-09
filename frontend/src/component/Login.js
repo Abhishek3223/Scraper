@@ -4,12 +4,12 @@ import AllContext from '../context/notes/Context'
 import '../css/login.css'
 import { Cross, Mail } from '../images/image'
 import TypeWritter from './typeWriter'
-
+import { Loaderr } from './loader'
 const Login = (props) => {
 
   const navigate = useNavigate();
   const context = useContext(AllContext)
-
+  const [loader, setLoader] = useState(false);
   const { setloginStatus, Login } = context;
 
   const gobacktoHome = () => {
@@ -22,7 +22,7 @@ const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("submit button has been clciked")
+    setLoader(true);
     const json = await Login(credentials)
     console.log(json)
     if (json.Success) {
@@ -31,6 +31,10 @@ const Login = (props) => {
       navigate('/')
 
     }
+    else {
+      // alert('invalid credential')
+    }
+    setLoader(false);
 
   }
 
@@ -78,7 +82,7 @@ const Login = (props) => {
 
           </div>
           <button className='button' type="submit" >
-            Log in
+            {loader ? <span className='loader-dive'><Loaderr /></span> : " Log in "}
           </button>
           <Link to="/signup" >
             {/* onClick={navigate('/signup')} */}

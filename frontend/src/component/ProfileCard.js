@@ -18,16 +18,27 @@ const ProfileCard = () => {
                 </p>
 
                 <div className="links">
-                    <i style={
+                    <a href="https://www.linkedin.com/in/abhishek-ranjan-6b170823b/">
+                        <i style={
+                            {
+                                'color': '#00adb5'
+                            }
+                        } className="fa-brands fa-linkedin fa-5x linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Abhishek3223">
+
+                        <i style={
+                            {
+                                'color': '#00adb5'
+                            }
+                        } className="fa-brands  fa-5x  fa-square-github"></i>
+                    </a>
+
+                    {/* <i style={
                         {
                             'color': '#00adb5'
                         }
-                    } className="fa-brands fa-linkedin fa-5x linkedin"></i>
-                    <i style={
-                        {
-                            'color': '#00adb5'
-                        }
-                    } className="fa-brands  fa-5x  fa-square-github"></i>
+                    } className="fa-brands  fa-5x  fa-square-github"></i> */}
                     {/* <button className="view">View profile</button> */}
                 </div>
             </div>

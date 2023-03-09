@@ -72,7 +72,7 @@ export const Comment = () => {
 
 
 
-        const Response = await fetch(`http://localhost:5000/api/comment/addcomment`, {
+        const Response = await fetch(`${host}/api/comment/addcomment`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

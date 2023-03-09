@@ -279,6 +279,7 @@ body {
 .dont-have-acnt {
   margin-top: -20px;
 }
+
 .cross {
   z-index: 5;
   /* background-color: #b08bf8; */
@@ -316,3 +317,12 @@ body {
   /* border: 1px solid red; */
   font-weight: 500;
 }
+.loader2 {
+  width: 56%;
+  height: 41%;
+  border-color: #111827;
+  border-radius: 50%;
+}
+/* .loader-dive {
+  width: 30%;
+} */
