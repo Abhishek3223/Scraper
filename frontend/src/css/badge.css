@@ -79,6 +79,7 @@
   align-items: center;
   color: rgb(255, 255, 255);
   margin-left: 18px;
+  padding: 2px 5px;
 }
 .btn-first {
   transition: 1s;
@@ -147,3 +148,30 @@
     transform: scale(0.5);
   }
 } */
+@media only screen and (max-width: 600px) {
+  .badge {
+    width: 74%;
+    border: 2px solid red;
+    position: fixed;
+    top: 20vh;
+    left: 12%;
+    height: 16vh;
+    background-color: #111827;
+    z-index: 10;
+    flex-direction: column;
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 5;
+    padding: 5px;
+    border: 1px solid #00adb5;
+  }
+  .badge-message > p {
+    font-size: 20px;
+  }
+  .badge > .first_cont {
+    height: auto;
+  }
+}

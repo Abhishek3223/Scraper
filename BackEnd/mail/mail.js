@@ -10,7 +10,10 @@ async function sendEmail(email, message) {
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
     let testAccount = await nodemailer.createTestAccount();
-
+    console.log({
+        user: process.env.user,
+        pass: process.env.pass
+    })
     // create reusable transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -23,6 +26,7 @@ async function sendEmail(email, message) {
     // point to the template folder
     const handlebarOptions = {
         viewEngine: {
+            // extname: '.hbs',
             partialsDir: path.resolve('./views/'),
             defaultLayout: false,
         },

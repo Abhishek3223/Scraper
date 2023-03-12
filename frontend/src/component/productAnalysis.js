@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import '../css/productAnalysis.css'
 import { useNavigate } from 'react-router-dom'
-// import Details from './details'
 import AllContext from '../context/notes/Context'
 import Carousel from './imageSlider'
 import Linechart from './linechart'
@@ -11,6 +10,7 @@ import { Loaderr } from './loader';
 
 const ProductAnalysis = (props) => {
     const navigate = useNavigate();
+    const host = process.env.REACT_APP_HOST
 
     const context = useContext(AllContext)
 
@@ -20,10 +20,17 @@ const ProductAnalysis = (props) => {
     const [blur2, setBlurST2] = useState(false);
     const [notification, setNotification] = useState(0);
     let [loading, setloding] = useState(false);
+    const [AnalysisData, setAnalysisData] = useState(false);
+
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem('Product_data'))
+        setAnalysisData(data);
+        setNotification(data.notify);
+    }, [])
 
     const [price, setPrice] = useState(
         {
-            Price: ""
+            Price: AnalysisData.notifyPrice
         }
     )
     const Change = (e) => {
@@ -32,8 +39,6 @@ const ProductAnalysis = (props) => {
         })
     }
     const updateNotifyPrice = async () => {
-
-        const host = 'http://localhost:5000'
         const Response = await fetch(`${host}/api/notes/UpdateItem/${AnalysisData._id}`,
             {
                 method: 'PUT',
@@ -50,28 +55,51 @@ const ProductAnalysis = (props) => {
             });
         console.log(await Response.json());
     }
-    
-    const update = async () => {
-        setloding(true);
-        ActivateBadge('updating the notify Price', 'loader')
-        const res = await updateNotifyPrice();
-        ActivateBadge('Succesfully updated the price', 'verify')
-        DeactivateBadge()
-        // ActivateAlert("Succesfully updated the price", "success")
-        console.log(res);
-        setloding(false);
+    const toggleNotification = async () => {
+        ActivateBadge('switcing the notification', 'loader')
+
+        const Response = await fetch(`${host}/api/notes/UpdateItem/toggleNotification/${AnalysisData._id}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "auth-token": localStorage.getItem('token')
+                },
+            });
+        const res = await Response.json()
+        if (await res.status === 'Success') {
+            ActivateBadge('Swicthed alarm', 'verify')
+            setNotification(!notification);
+        }
+        else {
+            ActivateBadge('Error occoured', 'loader')
+
+        }
     }
 
+    const update = async () => {
+        if (price.Price !== '') {
+            setloding(true);
+            ActivateBadge('updating the notify Price', 'loader')
+            const res = await updateNotifyPrice();
+            if (res.status === 'Success') {
+                ActivateBadge('Succesfully updated ', 'verify')
 
-    const [AnalysisData, setAnalysisData] = useState(false);
+            }
+            else {
+                ActivateBadge('Error Occoured', 'verify')
+            }
+            DeactivateBadge()
+            // ActivateAlert("Succesfully updated the price", "success")
+            setloding(false);
+        }
+        else {
+            // alert("please add somthing to update")
+            ActivateAlert("Please add something to update ", "success")
+        }
+    }
 
-    useEffect(() => {
-        const data = JSON.parse(localStorage.getItem('Product_data'))
-        setAnalysisData(data)
-        // console.log(data);
-        // console.log(AnalysisData.offers);
-    }, [])
-
+    // let notificationValue = (AnalysisData).notifyPrice ? (AnalysisData).notifyPrice : ""
     const getImage = (link) => {
         if (link.slice(0, 18) === "https://www.amazon") { return "amazon" }
         else if (link.slice(0, 20) === "https://www.flipkart") { return "flipkart" }
@@ -153,7 +181,6 @@ const ProductAnalysis = (props) => {
                                             return <p key={k}><span> {i}</span> :{JSON.parse(AnalysisData.url1.offers)[1][k] ? JSON.parse(AnalysisData.url1.offers)[1][k] : "Please go to site for more info."}</p>
                                         })) : ""
                                 }
-
                             </div>
                             :
                             // for flipkart
@@ -171,7 +198,7 @@ const ProductAnalysis = (props) => {
 
                 </div>
                 <div className="notification">
-                    <div className="bell" onClick={() => { setNotification(!notification) }}>
+                    <div className="bell" onClick={() => { toggleNotification() }}>
                         {
                             notification ?
                                 <i className=" scale-up-top  fa-5x fa-solid fa-bell-slash"></i> :
@@ -182,7 +209,7 @@ const ProductAnalysis = (props) => {
                     <div className='notify'>
                         <p> Alert me when price is less then </p>
                         <div className={"notify-para"}>
-                            <input onChange={Change} name="Price" />
+                            <input onChange={Change} value={price.Price} name="Price" />
                             <div className='btn' onClick={update}>
                                 Notify
                                 <span >

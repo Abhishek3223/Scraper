@@ -6,7 +6,7 @@ const urlSchema = new Schema({
         type: String,
         require: true
     },
-    img:[String],
+    img: [String],
     discription: String,
     actualPrice: Number,
     priceData: [Number],
@@ -26,6 +26,10 @@ const compSchema = new Schema({
     notifyPrice: {
         type: String,
         require: true
+    },
+    notify: {
+        type: Boolean,
+        default: false
     },
     url1: {
         type: urlSchema,

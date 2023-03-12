@@ -130,8 +130,6 @@ router.put('/UpdateItem/:id', fetchUSER,
 
             const UpdatedItem = {}
             if (newPrice) { UpdatedItem.notifyPrice = newPrice };
-            // if (discription) { UpdatedItem.discription = discription };
-            // if (tags) { UpdatedItem.tags = tags };
 
             // making the application secure .....
             let previous_note = await compData.findById(req.params.id)
@@ -150,13 +148,51 @@ router.put('/UpdateItem/:id', fetchUSER,
                 $set: UpdatedItem
             }, { new: false })
 
-            res.json([{ previous_note }, { UpdatedItem }])
+            res.json({ status: "Success", updatedPart: [{ previous_note }, { UpdatedItem }] })
 
 
         } catch (err) {
             // console.log(err.message);
             res.status(404).json(
-                { "Internal Error occouured !! ": err.message }
+                { status: "failure", "Internal Error occouured !! ": err.message }
+            );
+        }
+
+    })
+router.put('/UpdateItem/toggleNotification/:id', fetchUSER,
+
+    async (req, res) => {
+        try {
+
+
+            // const UpdatedItem = {}
+            // if (newPrice) { UpdatedItem.notifyPrice = newPrice };
+
+            // making the application secure .....
+            let previous_note = await compData.findById(req.params.id)
+            if (!previous_note) {
+                return res.status(404).send("Notes not Found")
+            }
+            // if the id is invalid which can be changed via tampering the endpoint then return not found
+            // console.log(`notes to be updated  -- ${previous_note.id.toString()}`);
+            // console.log(`id value is -- ${req.params.id}`);
+
+            if ((previous_note.id.toString()) !== (req.params.id)) {
+                return res.status(401).send("NOT allowed")
+            }
+
+            await compData.findByIdAndUpdate(req.params.id, {
+                $set: {
+                    notify: !(previous_note.notify)
+                }
+            }, { new: false })
+
+            res.json({ status: "Success" })
+
+
+        } catch (err) {
+            res.status(404).json(
+                { status: "failure", "Internal Error occouured !! ": err.message }
             );
         }
 
@@ -169,39 +205,39 @@ router.put('/UpdateItem/:id', fetchUSER,
 
 
 // Delete is generally  used for delete notes
-router.delete('/deleteItem/:id', fetchUSER,
+// router.delete('/deleteItem/:id', fetchUSER,
 
 
-    async (req, res) => {
-        try {
-            // making the application secure .....
-            let previous_note = await compData.findById(req.params.id)
-            if (!previous_note) {
-                return res.status(404).send("Notes not Found")
-            }
-            // if the id is invalid which can be changed via tampering the endpoint then return not found
-            console.log(`notes to be updated  -- ${previous_note.id.toString()}`);
-            console.log(`id value is -- ${req.params.id}`);
+//     async (req, res) => {
+//         try {
+//             // making the application secure .....
+//             let previous_note = await compData.findById(req.params.id)
+//             if (!previous_note) {
+//                 return res.status(404).send("Notes not Found")
+//             }
+//             // if the id is invalid which can be changed via tampering the endpoint then return not found
+//             console.log(`notes to be updated  -- ${previous_note.id.toString()}`);
+//             console.log(`id value is -- ${req.params.id}`);
 
 
-            if ((previous_note.id.toString()) !== (req.params.id)) {
-                return res.status(401).send("NOT allowed")
-            }
+//             if ((previous_note.id.toString()) !== (req.params.id)) {
+//                 return res.status(401).send("NOT allowed")
+//             }
 
-            previous_note = await compData.findByIdAndDelete(req.params.id)
-            res.json({
-                "sucess": "the note has been delted",
-                "Note": previous_note
-            })
-
-
-        } catch (err) {
-            console.log(err.message);
-
-            res.status(404).json({ "Internal Error occouured !! ": err.message });
+//             previous_note = await compData.findByIdAndDelete(req.params.id)
+//             res.json({
+//                 "sucess": "the note has been delted",
+//                 "Note": previous_note
+//             })
 
 
-        }
+//         } catch (err) {
+//             console.log(err.message);
 
-    })
+//             res.status(404).json({ "Internal Error occouured !! ": err.message });
+
+
+//         }
+
+//     })
 module.exports = router

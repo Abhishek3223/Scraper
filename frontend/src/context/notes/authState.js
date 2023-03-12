@@ -49,7 +49,7 @@ const AuthState = (props) => {
         if (e === 'e') {
             // deactivate imidiattelly-------
             console.log("immidiate")
-            return SetBadge({
+            SetBadge({
                 status: false,
                 message: "",
                 type: '',
@@ -57,7 +57,7 @@ const AuthState = (props) => {
         }
         else {
             console.log("arm se")
-            return setTimeout(() => {
+            setTimeout(() => {
                 SetBadge({
                     status: false,
                     message: "",
