@@ -2,7 +2,7 @@
 
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, './process.env') })
-// console.log(process.env.PASSWORD);
+
 var url = `mongodb+srv://abhishek_1212:${process.env.PASSWORD}@cluster0.nhsofb8.mongodb.net?retryWrites=true&w=majority`
 
 const { MongoClient } = require("mongodb");
