@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const mongoURI = `mongodb+srv://abhishek_1212:${process.env.PASSWORD}@cluster0.nhsofb8.mongodb.net/PriceComporator?retryWrites=true&w=majority`
 
+mongoose.set('strictQuery', false);
 
 const conectToMongo = () => {
     mongoose.connect(mongoURI, () => {
