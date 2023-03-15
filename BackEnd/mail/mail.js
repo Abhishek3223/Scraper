@@ -26,7 +26,7 @@ async function sendEmail(email, message) {
     // point to the template folder
     const handlebarOptions = {
         viewEngine: {
-            // extname: '.hbs',
+            extname: '.hbs',
             partialsDir: path.resolve('./views/'),
             defaultLayout: false,
         },
