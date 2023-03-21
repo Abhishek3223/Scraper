@@ -15,7 +15,7 @@ const app = Express()
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //     next();
 // })
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['http://localhost:3000',"https://scrapeer.netlify.app/"];
 
 const corsOptions = {
     // origin: allowedOrigins,
