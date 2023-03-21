@@ -1,6 +1,5 @@
 "use strict";
 const nodemailer = require("nodemailer");
-// const mailTemplate = require('./mailtemplate')
 const hbs = require('nodemailer-express-handlebars')
 const path = require('path')
 const viewpath = path.join(__dirname, "./views");
@@ -39,10 +38,9 @@ async function sendEmail(email, message) {
         from: 'scraptit007@gmail.com',// sender address
         to: email, // list of receivers
         subject: "Email verification ✔", // Subject line
-        template: 'email', // the name of the template file i.e email.handlebars
+        template: 'email',
         context: {
-            // replace {{name}} with Adebola
-            Link: message // replace {{company}} with My Company
+            Link: message 
         }
     };
 
@@ -55,12 +53,6 @@ async function sendEmail(email, message) {
         }
     });
 
-    // console.log("Message sent: %s", info.messageId);
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-    // Preview only available when sending through an Ethereal account
-    // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 // sendEmail('imabhishekranjan1100@gmail.com', 'loda.lassan')
 
