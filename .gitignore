@@ -1,6 +1,5 @@
 BackEnd/node_modules
 BackEnd/process.env
 frontend/node_modules
-frontend/build
 frontend/.env
 Scraper/node_modules
