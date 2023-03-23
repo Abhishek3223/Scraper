@@ -26,8 +26,7 @@ const ProductCard = (props) => {
         >
 
             <div className='product-img'>
-                <img src={props.data.url1.img[0]} alt="" srcset="" />
-
+                <img src={props.data.url1?.img[0]} alt="" srcset="" />
             </div>
             <div className="product-details">
                 <p className="prodcut-title">
