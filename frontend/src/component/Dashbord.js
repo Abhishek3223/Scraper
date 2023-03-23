@@ -26,7 +26,7 @@ const Dashbord = () => {
         return async () => {
             if (localStorage.getItem('token')) {
                 const response = await Getuser();
-                console.log(response);
+
                 if (response.verfied) {
                     const data = await GetRepel()
                     setrepel(data)

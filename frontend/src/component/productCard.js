@@ -6,15 +6,12 @@ import { useNavigate } from 'react-router-dom'
 const ProductCard = (props) => {
 
 
-    const context = useContext(AllContext)
+    // const context = useContext(AllContext)
     const navigate = useNavigate();
 
-    const { setAnalysisData } = context;
-    const title = props.data.title;
-    console.log(title);
-    // for (let index = 0; index < title.length; index++) {
-    //     const element = title[index];
-    // }
+    // const { setAnalysisData } = context;
+    // const title = props.data.title;
+
     const getImage = (link) => {
         if (link.slice(0, 18) === "https://www.amazon") { return "/images/amazon.png" }
         else if (link.slice(0, 20) === "https://www.flipkart") { return "/images/flipkart.png" }
@@ -23,7 +20,6 @@ const ProductCard = (props) => {
     return (
         <div className='product-card'
             onClick={async () => {
-                console.log(props.data);
                 localStorage.setItem('Product_data', JSON.stringify(props.data))
                 navigate('/productAnalysis')
             }}

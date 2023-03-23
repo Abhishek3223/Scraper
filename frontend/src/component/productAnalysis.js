@@ -22,10 +22,13 @@ const ProductAnalysis = (props) => {
     let [loading, setloding] = useState(false);
     const [AnalysisData, setAnalysisData] = useState(false);
 
-    useEffect(() => {
-        const data = JSON.parse(localStorage.getItem('Product_data'))
+    const loadData = async () => {
+        const data = await JSON.parse(localStorage.getItem('Product_data'))
         setAnalysisData(data);
         setNotification(data.notify);
+    }
+    useEffect(() => {
+        loadData();
     }, [])
 
     const [price, setPrice] = useState(
@@ -53,7 +56,7 @@ const ProductAnalysis = (props) => {
                     }
                 )
             });
-        console.log(await Response.json());
+        // console.log(await Response.json());
     }
     const toggleNotification = async () => {
         ActivateBadge('switcing the notification', 'loader')
@@ -107,7 +110,7 @@ const ProductAnalysis = (props) => {
     }
 
     const changeBrand = (e) => {
-        console.log("chnage brand fired");
+        // console.log("chnage brand fired");
         if (e === 'amazon') {
             setBlurST2(true);
             setTimeout(() => {

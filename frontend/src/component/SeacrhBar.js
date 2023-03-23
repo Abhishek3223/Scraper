@@ -25,19 +25,25 @@ const SeacrhBar = (props) => {
         navigate('/signup')
 
     }
-
-
-    useEffect(() => {
-        return async () => {
+    const LoadUser = async () => {
+        try {
             if (localStorage.token) {
-                console.log(location);
+                // console.log(location);
 
                 const response = await Getuser();
                 setitle(response.name)
                 setmail(response.email)
                 setloginStatus(true)
             }
+        } catch (error) {
+            console.log(error)
         }
+
+    }
+
+
+    useEffect(() => {
+        LoadUser();
     }, [LoginStatus])
 
 

@@ -48,7 +48,7 @@ const AuthState = (props) => {
     const DeactivateBadge = (e) => {
         if (e === 'e') {
             // deactivate imidiattelly-------
-            console.log("immidiate")
+            // console.log("immidiate")
             SetBadge({
                 status: false,
                 message: "",
@@ -56,7 +56,7 @@ const AuthState = (props) => {
             })
         }
         else {
-            console.log("arm se")
+            // console.log("arm se")
             setTimeout(() => {
                 SetBadge({
                     status: false,
@@ -77,7 +77,7 @@ const AuthState = (props) => {
     const [showFullMenue, setMenue] = useState(false);
 
     const Login = async (credentials) => {
-        console.log(credentials);
+        // console.log(credentials);
         // ActivateBadge("loging you in", "loader")
         const response = await fetch(`${host}/api/auth/Login`, {
             method: 'POST',
@@ -104,13 +104,13 @@ const AuthState = (props) => {
             // DeactivateBadge('e')
             ActivateAlert("Invalid Credentials", "warning")
         }
-        console.log(json);
+        // console.log(json);
         return json
 
 
     }
     const SignUp = async (credentials) => {
-        console.log(credentials);
+        // console.log(credentials);
 
         const response = await fetch(`${host}/api/auth/CreatUSER`, {
             method: 'POST',
@@ -132,7 +132,7 @@ const AuthState = (props) => {
             // setloginStatus(true)
             ActivateAlert("Succesfully created a account", "success")
         }
-        console.log(json);
+
         return json
 
 
@@ -187,7 +187,6 @@ const AuthState = (props) => {
             ActivateAlert("Added a note", "success")
             setRepel(repel.push(newRepel))
         }
-        console.log(newRepel)
 
         setRepel(repel.concat(newRepel))
 
@@ -226,7 +225,7 @@ const AuthState = (props) => {
         // reaching the note to edit and Editing
         for (let index = 0; index < repel.length; index++) {
             const element = AllRepel[index];
-            console.log("Edditing !!")
+            // console.log("Edditing !!")
             if (element._id === id_toEdit) {
                 element.notifyPrice = newPrice
             }
