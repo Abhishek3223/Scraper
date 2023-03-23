@@ -43,24 +43,6 @@ const Linechart = () => {
     }
 
 
-    // {
-    //     labels: data.labels,
-    //     datasets: [
-    //         {
-    //             label: "Flipkart",
-    //             data: data.datasets[0].data,
-    //             fill: true,
-    //             backgroundColor: "rgba(75,192,192,0.2)",
-    //             borderColor: "rgba(75,192,192,1)"
-    //         },
-    //         {
-    //             label: "Amazon",
-    //             data: data.datasets[1].data,
-    //             fill: false,
-    //             borderColor: "#742774"
-    //         }
-    //     ]
-    // }
 
 
     const [week, setWeek] = useState(false);

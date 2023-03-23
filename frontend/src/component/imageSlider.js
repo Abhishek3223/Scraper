@@ -19,26 +19,19 @@ const Carousel = (props) => {
     let [count, setCount] = useState(0);
 
     function prevClick() {
-        console.log("perv");
-
         if (count) {
-
-            setCount(--count);
+          setCount(--count);
         }
-
-
     }
 
     function nextClick() {
         console.log("next");
         if (count < _items.length - 1) {
             setCount(++count);
-
         }
         else {
             setCount(0)
         }
-
     }
 
     return (

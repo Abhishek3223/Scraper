@@ -22,31 +22,30 @@ const Dashbord = () => {
     }
     const { GetRepel, Getuser, ActivateAlert, ActivateBadge } = context;
 
-    useEffect(() => {
-        return async () => {
-            if (localStorage.getItem('token')) {
-                const response = await Getuser();
+    const loadData = async () => {
+        if (localStorage.getItem('token')) {
+            const response = await Getuser();
 
-                if (response.verfied) {
-                    const data = await GetRepel()
-                    setrepel(data)
-                    if (await data) {
-                        changeLoading();
-                    }
-                }
-                else {
-                    ActivateBadge("Your aaccounbt is not verifed Please verify your account First", "verify-mail")
+            if (response.verfied) {
+                const data = await GetRepel()
+                setrepel(data)
+                if (await data) {
                     changeLoading();
                 }
-
             }
             else {
-                ActivateAlert("login first !!", "warning")
-                navigate("/login")
+                ActivateBadge("Your aaccounbt is not verifed Please verify your account First", "verify-mail")
+                changeLoading();
             }
+
         }
-
-
+        else {
+            ActivateAlert("login first !!", "warning")
+            navigate("/login")
+        }
+    }
+    useEffect(() => {
+        loadData()
     }, [])
     return (
         <div className='Dashbord'>

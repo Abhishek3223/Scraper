@@ -28,8 +28,6 @@ const SeacrhBar = (props) => {
     const LoadUser = async () => {
         try {
             if (localStorage.token) {
-                // console.log(location);
-
                 const response = await Getuser();
                 setitle(response.name)
                 setmail(response.email)

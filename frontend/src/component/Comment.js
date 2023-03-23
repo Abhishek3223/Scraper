@@ -16,7 +16,7 @@ export const Comment = () => {
     const context = useContext(AllContext)
     const { Getuser } = context;
     const host = process.env.REACT_APP_HOST
-    
+
     const CommentBox = (props) => {
 
         return (
@@ -106,12 +106,14 @@ export const Comment = () => {
         }
         // console.log(loading);
     }
+    const loadData = async () => {
+        const d = await getComment();
+        // console.log(d);
+        SetCommentData(d.reverse());
+    }
+    
     useEffect(() => {
-        return async () => {
-            const d = await getComment();
-            // console.log(d);
-            SetCommentData(d.reverse());
-        }
+        loadData();
     }, [])
 
     return (

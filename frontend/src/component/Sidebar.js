@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import '../css/sideBar.css';
 import AllContext from '../context/notes/Context';
 import { Logo, Home, DashboardImage } from '../images/image';

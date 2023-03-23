@@ -7,7 +7,7 @@ import Details from './details';
 const DetailsSpecs = (props) => {
     // const details_specs =  JSON.parse(props.data.url1.discription)
     const [detailsSpecs, setDetailsSpecs] = useState("")
-    useEffect(() => {
+    const LoadData = () => {
 
 
         const data = JSON.parse(localStorage.getItem('Product_data'))
@@ -19,6 +19,9 @@ const DetailsSpecs = (props) => {
         if (data.url1.discription === '[[],[]]') { setDetailsSpecs(d2) } else { setDetailsSpecs(d1) }
         console.log(detailsSpecs);
 
+    }
+    useEffect(() => {
+        LoadData();
     }, [])
     return (
         <div>

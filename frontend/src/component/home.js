@@ -15,10 +15,8 @@ const Home = () => {
 
 
     useEffect(() => {
-        return async () => {
-            if (localStorage.token) {
-                setloginStatus(true)
-            }
+        if (localStorage.token) {
+            setloginStatus(true)
         }
     }, [LoginStatus])
 
