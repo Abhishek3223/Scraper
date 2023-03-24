@@ -26,7 +26,7 @@ const ProductCard = (props) => {
             <div className="product-details">
                 <p className="prodcut-title">
                     {
-                        props.data.title.length > 85 ?
+                        props.data.title?.length > 85 ?
                             (props.data.title)?.slice(0, 85) + "..." : props.data.title
                     }
                 </p>
