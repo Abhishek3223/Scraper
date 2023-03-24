@@ -5,12 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const ProductCard = (props) => {
 
-
-    // const context = useContext(AllContext)
     const navigate = useNavigate();
-
-    // const { setAnalysisData } = context;
-    // const title = props.data.title;
 
     const getImage = (link) => {
         if (link.slice(0, 18) === "https://www.amazon") { return "/images/amazon.png" }
@@ -32,7 +27,7 @@ const ProductCard = (props) => {
                 <p className="prodcut-title">
                     {
                         props.data.title.length > 85 ?
-                            (props.data.title).slice(0, 85) + "..." : props.data.title
+                            (props.data.title)?.slice(0, 85) + "..." : props.data.title
                     }
                 </p>
                 <p className="prodcut-secondry-title">
@@ -49,7 +44,7 @@ const ProductCard = (props) => {
                         {
                             getImage(props.data.url1.link) ?
                                 <>
-                                    <img src={getImage(props.data.url1.link)} alt="" srcset="" />
+                                    <img src={getImage(props.data.url1?.link)} alt="" srcset="" />
                                     <p className='product-price'>
                                         {props.data.url1.priceData[props.data.url1.priceData.length - 1]}
                                         <span className='actual-price'>
@@ -61,8 +56,6 @@ const ProductCard = (props) => {
 
                                 : ""
                         }
-
-
                     </div>
                     <div className="price-flipkart">
                         {
