@@ -77,8 +77,6 @@ const AuthState = (props) => {
     const [showFullMenue, setMenue] = useState(false);
 
     const Login = async (credentials) => {
-        // console.log(credentials);
-        // ActivateBadge("loging you in", "loader")
         const response = await fetch(`${host}/api/auth/Login`, {
             method: 'POST',
             headers: {
@@ -96,15 +94,11 @@ const AuthState = (props) => {
         const json = await response.json()
         if (json.Success) {
             setloginStatus(true)
-            // ActivateBadge("succesfully s", "loader")
-            // DeactivateBadge('e')
             ActivateAlert("Succesfully loged in", "success")
         }
         else {
-            // DeactivateBadge('e')
             ActivateAlert("Invalid Credentials", "warning")
         }
-        // console.log(json);
         return json
 
 
@@ -188,7 +182,7 @@ const AuthState = (props) => {
             setRepel(repel.push(newRepel))
         }
 
-        setRepel(repel.concat(newRepel))
+        // setRepel(repel.concat(newRepel))
 
     }
 

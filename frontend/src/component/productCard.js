@@ -42,7 +42,7 @@ const ProductCard = (props) => {
 
                     <div className="price-amazon">
                         {
-                            getImage(props.data.url1.link) ?
+                            getImage(props.data.url1?.link) ?
                                 <>
                                     <img src={getImage(props.data.url1?.link)} alt="" srcset="" />
                                     <p className='product-price'>
@@ -59,7 +59,7 @@ const ProductCard = (props) => {
                     </div>
                     <div className="price-flipkart">
                         {
-                            getImage(props.data.url2.link) ?
+                            getImage(props.data.url2?.link) ?
                                 <>
                                     <img src={getImage(props.data.url2.link)} alt="" srcset="" />
                                     <p className='product-price'>
