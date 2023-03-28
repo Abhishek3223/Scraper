@@ -65,7 +65,7 @@ const Newcomp = () => {
             <div className='plus'>
                 <p onClick={() => { increaseheight() }} className='plus-left '>
                     {
-                        loading ? <Loaderr /> : '+'
+                        loading ? 'X' : '+'
                     }
                 </p>
                 <p className='create-new-para'>

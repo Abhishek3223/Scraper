@@ -8,9 +8,11 @@ const ProductCard = (props) => {
     const navigate = useNavigate();
 
     const getImage = (link) => {
-        if (link.slice(0, 18) === "https://www.amazon") { return "/images/amazon.png" }
-        else if (link.slice(0, 20) === "https://www.flipkart") { return "/images/flipkart.png" }
-        else { return 0 }
+        if (link){
+            if (link.slice(0, 18) === "https://www.amazon") { return "/images/amazon.png" }
+            else if (link.slice(0, 20) === "https://www.flipkart") { return "/images/flipkart.png" }
+            else { return 0 }
+        }
     }
     return (
         <div className='product-card'
