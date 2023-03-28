@@ -11,7 +11,6 @@ const ProfileCard = () => {
                 <div className="name">
                     <p>WEB DEVELOPER</p>
                     <h2>Abhishek Ranjan</h2>
-                    {/* <h4>@bradsteve</h4> */}
                 </div>
                 <p className="text">
                     I'm a Full Stack web Developer

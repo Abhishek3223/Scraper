@@ -5,12 +5,12 @@ import { Loaderr } from './loader';
 
 
 const Newcomp = () => {
-   
+
     const [addComp, setaddComp] = useState(false);
     const [height, setheight] = useState(false);
     let [loading, setloding] = useState(false);
     const contexts = useContext(AllContext)
-    const { Addrepel,  ActivateAlert } = contexts;
+    const { Addrepel, ActivateAlert } = contexts;
 
 
     const increaseheight = () => {
@@ -43,14 +43,16 @@ const Newcomp = () => {
     }
     const submit = async () => {
         setloding(!loading)
-       // console.log("submit button cliekced");
-       // console.log(credentials)
         if (credentials.link1) {
-            const res = await Addrepel(credentials)
+            try {
+                const res = await Addrepel(credentials)
+                console.log(res)
+            } catch (error) {
+                ActivateAlert("Atleast add one link", "warning")
+            }
         }
         else {
-            ActivateAlert("Atleast add one link", "warning")
-
+            ActivateAlert("some error has occoured", "warning")
         }
         setloding(false)
 
@@ -67,15 +69,10 @@ const Newcomp = () => {
                     }
                 </p>
                 <p className='create-new-para'>
-                    Lets create a new repel for u
+                    Lets create a new repel for you
                 </p>
-
-
             </div>
-
-            <div className={addComp ? "Add-deatails" :
-                " display-none"}>
-
+            <div className={addComp ? "Add-deatails" : " display-none"}>
                 <div className='div-label'>
                     <p className='label'>Link 1</p>
                     <input className='input' type="text" id="fname" name="link1" onChange={change} />

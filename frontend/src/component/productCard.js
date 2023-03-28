@@ -31,7 +31,7 @@ const ProductCard = (props) => {
                     }
                 </p>
                 <p className="prodcut-secondry-title">
-                    {props.data.url1.timeData[0]}
+                    {props.data.url1?.timeData[0]}
                     {/* 12-august 2019 */}
                 </p>
                 {/* <div className="rating">
@@ -48,7 +48,7 @@ const ProductCard = (props) => {
                                     <p className='product-price'>
                                         {props.data.url1.priceData[props.data.url1.priceData.length - 1]}
                                         <span className='actual-price'>
-                                            {props.data.url1.actualPrice}
+                                            {props.data.url1?.actualPrice}
 
                                         </span>
                                     </p>

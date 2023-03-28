@@ -20,7 +20,10 @@ const Badges = () => {
                     }
                     {
                         ((ShowBadge.type === 'verify' || ShowBadge.type === 'verify-mail') && ShowBadge.status)
-                            ? <i style={{ color: "#00adb5" }} class="fa-solid fa-4x fa-circle-check"></i> : ""
+                            ?
+                            <i style={{ color: "#00adb5" }} class="fa-sharp fa-4x fa-solid fa-circle-exclamation"></i> : ""
+                    },{
+                        ShowBadge.type === 'loader' && ShowBadge.status ? <a href="https://www.flaticon.com/free-icons/error" title="error icons" /> : ""
                     }
 
 

@@ -34,7 +34,7 @@ const Dashbord = () => {
                 }
             }
             else {
-                ActivateBadge("Your aaccounbt is not verifed Please verify your account First", "verify-mail")
+                ActivateBadge("Your aaccount  is not verifed Please verify your account First", "verify-mail")
                 changeLoading();
             }
 

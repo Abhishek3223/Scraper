@@ -46,7 +46,6 @@ router.post('/addItem', fetchUSER,
             let year = date.getFullYear();
 
             let currentDate = `${day}-${month}-${year}`;
-            console.log(currentDate);
 
             if (url2.link) {
 
