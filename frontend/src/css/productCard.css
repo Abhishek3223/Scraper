@@ -121,7 +121,7 @@ li {
 @media only screen and (max-width: 600px) {
   .product-card {
     height: 22vh;
-    width: 100%;
+    width: 97%;
     background-color: #111827;
     border-radius: 4px;
   }

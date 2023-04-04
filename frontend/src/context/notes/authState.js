@@ -131,11 +131,13 @@ const AuthState = (props) => {
 
 
     }
+
+
     const NotesInitial = []
     const [repel, setRepel] = useState(NotesInitial);
 
     const Getuser = async () => {
-        // post req for getting theuser info
+        // post req for getting the user info
 
         const response = await fetch(`${host}/api/auth/GetUser`, {
             method: 'POST',
@@ -161,7 +163,6 @@ const AuthState = (props) => {
                 'Content-Type': 'application/json',
                 "auth-token": localStorage.getItem('token')
             },
-
             body: JSON.stringify(
                 {
                     title: credentials.title[0],
@@ -175,19 +176,19 @@ const AuthState = (props) => {
             )
         });
 
-
+        console.log(await Response)
         const newRepel = await Response.json();
+        console.log(newRepel);
         if (newRepel) {
-            ActivateAlert("Added a note", "success")
-            setRepel(repel.push(newRepel))
+            ActivateAlert("Added a note", "success");
+            // setRepel(((repel.reverse()).push(newRepel)).reverse())
+            setRepel([newRepel].concat(repel))
+            // setRepel(repel.push(newRepel))
         }
-
-        // setRepel(repel.concat(newRepel))
-
+        return newRepel
     }
 
     const GetRepel = async () => {
-
         const Response = await fetch(`${host}/api/notes/fetchItems`, {
             method: 'GET',
             headers: {
@@ -199,35 +200,38 @@ const AuthState = (props) => {
         setRepel(res.reverse());
         return res
     }
-    const EditNote = async (id_toEdit, newPrice) => {
 
-        // api call to fetch data
-        const response = await fetch(`${host}/api/notes/UpdateItem/${id_toEdit}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('token')
-            },
 
-            body: JSON.stringify({ newPrice })
-        });
 
-        const json = await response.json()
+    // const EditNote = async (id_toEdit, newPrice) => {
 
-        let AllRepel = JSON.parse(JSON.stringify(repel))
+    //     // api call to fetch data
+    //     const response = await fetch(`${host}/api/notes/UpdateItem/${id_toEdit}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             "auth-token": localStorage.getItem('token')
+    //         },
 
-        // reaching the note to edit and Editing
-        for (let index = 0; index < repel.length; index++) {
-            const element = AllRepel[index];
-            // console.log("Edditing !!")
-            if (element._id === id_toEdit) {
-                element.notifyPrice = newPrice
-            }
-            break;
-        }
-        setRepel(AllRepel);
+    //         body: JSON.stringify({ newPrice })
+    //     });
 
-    }
+    //     const json = await response.json()
+
+    //     let AllRepel = JSON.parse(JSON.stringify(repel))
+
+    //     // reaching the note to edit and Editing
+    //     for (let index = 0; index < repel.length; index++) {
+    //         const element = AllRepel[index];
+    //         // console.log("Edditing !!")
+    //         if (element._id === id_toEdit) {
+    //             element.notifyPrice = newPrice
+    //         }
+    //         break;
+    //     }
+    //     setRepel(AllRepel);
+
+    // }
 
 
     return (

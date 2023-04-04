@@ -183,7 +183,6 @@ router.post('/GetUser', fetchUSER, async (req, res) => {
         res.send(user)
     } catch (error) {
         console.log({ "Error occouerd !!": error });
-
         res.status(401).json(error)
     }
 

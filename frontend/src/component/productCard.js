@@ -1,14 +1,15 @@
-import React, { useContext, } from 'react'
+import React, { useContext } from 'react'
 import '../css/productCard.css'
 import AllContext from '../context/notes/Context'
 import { useNavigate } from 'react-router-dom'
+
 
 const ProductCard = (props) => {
 
     const navigate = useNavigate();
 
     const getImage = (link) => {
-        if (link){
+        if (link) {
             if (link.slice(0, 18) === "https://www.amazon") { return "/images/amazon.png" }
             else if (link.slice(0, 20) === "https://www.flipkart") { return "/images/flipkart.png" }
             else { return 0 }
@@ -65,9 +66,7 @@ const ProductCard = (props) => {
                                 <>
                                     <img src={getImage(props.data.url2.link)} alt="" srcset="" />
                                     <p className='product-price'>
-                                        {
-                                            props.data.url2.priceData[props.data.url2.priceData.length - 1]
-                                        }
+                                        {props.data.url2.priceData[props.data.url2.priceData.length - 1]}
                                         <span className='actual-price'>
                                             {props.data.url2.actualPrice}
 
@@ -76,9 +75,7 @@ const ProductCard = (props) => {
                                 </>
                                 : ""
                         }
-
                     </div>
-
                 </div>
                 {/* <div className="price-amazon">
                     <img src="/images/amazon.png" alt="" srcset="" />

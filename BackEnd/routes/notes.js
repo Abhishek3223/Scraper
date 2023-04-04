@@ -37,7 +37,7 @@ router.post('/addItem', fetchUSER,
                 return res.status(400).json({ errors: errors.array() });
             }
             const date = new Date();
-            console.log(date);
+            // console.log(date);
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
             const d = new Date();
@@ -79,7 +79,7 @@ router.post('/addItem', fetchUSER,
                     title: url1Data.title
                 })
                 const saveNotes = await compRepel.save();
-                // console.log(saveNotes);
+                console.log(saveNotes);
                 res.send(saveNotes)
             }
             else {

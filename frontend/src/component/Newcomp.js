@@ -42,14 +42,15 @@ const Newcomp = () => {
         })
     }
     const submit = async () => {
+        console.log(credentials);
         setloding(!loading)
         if (credentials.link1) {
-            try {
-                const res = await Addrepel(credentials)
-                console.log(res)
-            } catch (error) {
-                ActivateAlert("Atleast add one link", "warning")
-            }
+            // try {
+            const res = await Addrepel(credentials)
+            console.log(res)
+            // } catch (error) {
+            //     ActivateAlert("Atleast add one link", "warning")
+            // }
         }
         else {
             ActivateAlert("some error has occoured", "warning")
@@ -65,7 +66,7 @@ const Newcomp = () => {
             <div className='plus'>
                 <p onClick={() => { increaseheight() }} className='plus-left '>
                     {
-                        loading ? 'X' : '+'
+                        loading ? '' : '+'
                     }
                 </p>
                 <p className='create-new-para'>
