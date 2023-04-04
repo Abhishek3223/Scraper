@@ -15,7 +15,7 @@ const SideBar = (props) => {
 
     const changeWidth = () => {
         setMenue(!(showFullMenue));
-        props.changeWidth()
+        // props.changeWidth()
     }
 
     return (
