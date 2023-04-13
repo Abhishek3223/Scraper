@@ -162,5 +162,5 @@ const run = async () => {
         console.log("programs ends here");
     }
 }
-run();
+
 module.exports = run

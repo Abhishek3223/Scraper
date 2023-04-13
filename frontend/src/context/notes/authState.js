@@ -29,13 +29,10 @@ const AuthState = (props) => {
     }
     // badge part----------------------------------------------------------------------------------
 
-
     const [ShowBadge, SetBadge] = useState({
         type: "",
         status: false,
         message: "",
-        // signal: "",
-
     })
     const ActivateBadge = (msg, sig) => {
         SetBadge({
@@ -126,10 +123,7 @@ const AuthState = (props) => {
             // setloginStatus(true)
             ActivateAlert("Succesfully created a account", "success")
         }
-
         return json
-
-
     }
 
 

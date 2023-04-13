@@ -56,7 +56,7 @@ const ProductAnalysis = (props) => {
                     }
                 )
             });
-        // console.log(await Response.json());
+        console.log(await Response.json());
     }
     const toggleNotification = async () => {
         ActivateBadge('switcing the notification', 'loader')

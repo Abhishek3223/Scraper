@@ -18,7 +18,7 @@ const ScrapingFunc = async (url) => {
 
 }
 
-// ScrapingFunc("https://www.flipkart.com/oneplus-10r-5g-sierra-black-256-gb/p/itm6869e4c9a3001?pid=MOBGEYQA3SHGBGTF&lid=LSTMOBGEYQA3SHGBGTFJMCCTO&marketplace=FLIPKART&q=onplus10&store=tyy%2F4io&spotlightTagId=BestvalueId_tyy%2F4io&srno=s_1_1&otracker=search&otracker1=search&fm=Search&iid=a9b126a2-e10f-4b79-9b87-64f64c2e53b7.MOBGEYQA3SHGBGTF.SEARCH&ppt=sp&ppn=sp&ssid=awppij7hps0000001673070557541&qH=e87347da1b1074b6")
+// ScrapingFunc("https://www.flipkart.com/cougar-hexa-dumbbells-5kg-pair-rubber-coated-professional-hex-dumbbell-set-fixed-weight/p/itmc9eff384d9649?pid=DBLFWVR59QB3TE8V&lid=LSTDBLFWVR59QB3TE8VIX3IAL&marketplace=FLIPKART&store=qoc%2Facb%2Fzuc&srno=b_1_1&otracker=browse&iid=en_Lp9Qt%2BW%2BmFdz5VS7wEYZF9%2BafUbYshUGHIfI4g%2FrJEW%2FWFv22NsXDkWMom1LP9D%2F7u2Gi0BZ8wzLnj27YrHxRw%3D%3D&ssid=y8ld301cpc0000001675196305673")
 
 module.exports = ScrapingFunc
 
