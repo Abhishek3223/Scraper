@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon automation.js"
+    "start": "nodemon automation.js",
+    "build": "echo \"No build step required\""
   },
   "author": "",
   "license": "ISC",
