@@ -56,7 +56,10 @@ const ProductAnalysis = (props) => {
                     }
                 )
             });
-        console.log(await Response.json());
+        // console.log(await Response.json());
+        const value = await Response.json();
+        console.log(value);
+        return value
     }
     const toggleNotification = async () => {
         ActivateBadge('switcing the notification', 'loader')
@@ -70,6 +73,7 @@ const ProductAnalysis = (props) => {
                 },
             });
         const res = await Response.json()
+        console.log(res);
         if (await res.status === 'Success') {
             ActivateBadge('Swicthed alarm', 'verify')
             setNotification(!notification);
@@ -83,8 +87,9 @@ const ProductAnalysis = (props) => {
     const update = async () => {
         if (price.Price !== '') {
             setloding(true);
-            ActivateBadge('updating the notify Price', 'loader')
+            ActivateBadge('Updating the notification Price', 'loader')
             const res = await updateNotifyPrice();
+            console.log(res);
             if (res.status === 'Success') {
                 ActivateBadge('Succesfully updated ', 'verify')
 
@@ -156,7 +161,9 @@ const ProductAnalysis = (props) => {
                                 </div>
                                 <div className="price-value" >
                                     <p>{AnalysisData.url1.priceData[AnalysisData.url1.priceData.length - 1]}</p>
+
                                 </div>
+                                <i className="fa-solid fa-link fa-xl" style={{ "color": "#00adb5" }}></i>
                             </div> : ""
                         }
 
@@ -167,8 +174,12 @@ const ProductAnalysis = (props) => {
                                 </div>
                                 <div className="price-value" >
                                     <p>{AnalysisData.url2.priceData[AnalysisData.url2.priceData.length - 1]}</p>
+
                                 </div>
-                            </div> : ""
+                                <i className="fa-solid fa-link fa-xl" style={{ "color": "#00adb5" }}></i>
+                                {/* <div className='bubble5'></div> */}
+                            </div>
+                            : ""
                         }
                     </div>
                     <div className="offers">

@@ -12,7 +12,7 @@ import { Loader } from './loader';
 const Dashbord = () => {
     const navigate = useNavigate();
     const context = useContext(AllContext)
-    const [repel, setrepel] = useState([])
+    // const [repel, setrepel] = useState([])
     const [isloading, setLoading] = useState(true);
     const changeLoading = () => {
 
@@ -20,7 +20,7 @@ const Dashbord = () => {
             setLoading(false);
         }, 1000);
     }
-    const { GetRepel, Getuser, ActivateAlert, ActivateBadge } = context;
+    const { GetRepel, Getuser, repel, ActivateAlert, ActivateBadge } = context;
 
     const loadData = async () => {
         if (localStorage.getItem('token')) {
@@ -28,13 +28,13 @@ const Dashbord = () => {
 
             if (response.verfied) {
                 const data = await GetRepel()
-                setrepel(data)
+                // setrepel(data)
                 if (await data) {
                     changeLoading();
                 }
             }
             else {
-                ActivateBadge("Your aaccount  is not verifed Please verify your account First", "verify-mail")
+                ActivateBadge("Your account  is not verifed  Please verify your account First", "verify-mail", "We have sent you email for account verification")
                 changeLoading();
             }
 
@@ -50,14 +50,13 @@ const Dashbord = () => {
     return (
         <div className='Dashbord'>
             <Newcomp />
-
             <div className="present-comp">
                 {
                     (isloading) ?
                         (<Loader />) :
                         (
                             (repel) ?
-                                (repel.map((note) => {
+                                ([...repel].reverse().map((note) => {
                                     return <ProductCard key={note._id} data={note} />
                                 }))
                                 :

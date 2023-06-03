@@ -41,8 +41,11 @@ router.post('/addcomment', fetchUSER,
                 date: currentDate
             })
 
-            const saveNotes = await comment.save();
-            res.send(saveNotes)
+            const newComment = await comment.save();
+            const result = {
+                Newcomment: newComment, Success: true
+            }
+            res.send(result);
 
         } catch (err) {
             // console.log(err.message);

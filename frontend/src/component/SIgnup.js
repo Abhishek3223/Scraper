@@ -27,18 +27,14 @@ const SignUp = (props) => {
         "Maximize your savings potential with our price tracking and reminder site. It's like having a personal shopping assistant in your pocket."]
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // console.log("submit button has been clciked")
         setLoader(true);
 
         const json = await SignUp(credentials)
-        // console.log(json)
         if (json.Success) {
             alert("succcessfully Loged In success")
             navigate('/login')
         }
         else {
-
             alert(" danger")
         }
         setLoader(false);
@@ -102,7 +98,7 @@ const SignUp = (props) => {
                 </form>
             </div>
             <div className="sidepart">
-                <div className="blinker">
+                <div className="blinker1">
                     <TypeWritter word={labels} />
                 </div>
                 <div class="ocean">

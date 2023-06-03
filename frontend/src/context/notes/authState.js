@@ -33,12 +33,14 @@ const AuthState = (props) => {
         type: "",
         status: false,
         message: "",
+        message_2: ""
     })
-    const ActivateBadge = (msg, sig) => {
+    const ActivateBadge = (msg, sig, message_2) => {
         SetBadge({
             type: sig,
             status: true,
             message: msg,
+            message_2: message_2
             // signal: sig,
         })
     }
@@ -89,7 +91,7 @@ const AuthState = (props) => {
 
 
         const json = await response.json()
-        if (json.Success) {
+        if (json.name) {
             setloginStatus(true)
             ActivateAlert("Succesfully loged in", "success")
         }
@@ -145,7 +147,7 @@ const AuthState = (props) => {
     }
 
 
-
+    // const [addStatus, setaddStatus] = useState(false);
     // add new repel
     const Addrepel = async (credentials) => {
 
@@ -170,14 +172,17 @@ const AuthState = (props) => {
             )
         });
 
-        console.log(await Response)
         const newRepel = await Response.json();
-        console.log(newRepel);
-        if (newRepel) {
+        // console.log(await Response)
+        // console.log(newRepel);
+        if (await newRepel.Success) {
+            const newComp = await newRepel.Newcomp;
+            console.log(newComp);
+            setRepel([...repel, newComp])
             ActivateAlert("Added a note", "success");
-            // setRepel(((repel.reverse()).push(newRepel)).reverse())
-            setRepel([newRepel].concat(repel))
-            // setRepel(repel.push(newRepel))
+        }
+        else {
+            ActivateAlert("Error occoured !!", "warning");
         }
         return newRepel
     }
@@ -191,7 +196,7 @@ const AuthState = (props) => {
             }
         });
         const res = await Response.json();
-        setRepel(res.reverse());
+        setRepel(res);
         return res
     }
 
@@ -229,7 +234,7 @@ const AuthState = (props) => {
 
 
     return (
-        <AllContext.Provider value={{ ShowBadge, DeactivateBadge, ActivateBadge, LoginStatus, Login, setloginStatus, Getuser, showFullMenue, setMenue, ShowAlert, SetAlert, SignUp, Addrepel, GetRepel, ActivateAlert }}>
+        <AllContext.Provider value={{ ShowBadge, DeactivateBadge, ActivateBadge, LoginStatus, Login, setloginStatus, Getuser, showFullMenue, setMenue, repel, ShowAlert, SetAlert, SignUp, Addrepel, GetRepel, ActivateAlert }}>
             {props.children}
         </AllContext.Provider>
 

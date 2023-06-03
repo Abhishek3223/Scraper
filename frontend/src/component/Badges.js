@@ -22,8 +22,10 @@ const Badges = () => {
                         ((ShowBadge.type === 'verify' || ShowBadge.type === 'verify-mail') && ShowBadge.status)
                             ?
                             <i style={{ color: "#00adb5" }} class="fa-sharp fa-4x fa-solid fa-circle-exclamation"></i> : ""
-                    },{
-                        ShowBadge.type === 'loader' && ShowBadge.status ? <a href="https://www.flaticon.com/free-icons/error" title="error icons" /> : ""
+                    },
+                    {
+                        ShowBadge.type === 'error' && ShowBadge.status ? <a
+                            href="https://www.flaticon.com/free-icons/error" title="error icons" /> : ""
                     }
 
 
@@ -32,7 +34,20 @@ const Badges = () => {
                     <p>
                         {ShowBadge.status ? ShowBadge.message : ""}
                     </p>
-                </div></div>
+
+                </div>
+
+            </div>
+            {
+                ShowBadge.status && ShowBadge.message_2 ?
+                    <div className='badge-message-2'>
+                        <p>
+                            {ShowBadge.message_2}
+                        </p>
+
+                    </div> : ""
+            }
+
             <div className="second_cont">
                 {
 
@@ -44,14 +59,13 @@ const Badges = () => {
                 }
                 {
                     ShowBadge.type === 'verify-mail' ?
-                        <div div className="btn btn-first" onClick={
-                            // verifaction of mail if okay sen d a mail 
-                            () => {
-                                navigate('/')
-                            }
-                        }>
-                            verify
-                        </div> : ""
+                        <div div className="btn btn-first">
+                            <a href="https://mail.google.com/mail/u/0/#inbox">
+                                verify
+                            </a>
+
+                        </div>
+                        : ""
                 }
                 {
                     // ShowBadge.second &&
@@ -66,13 +80,6 @@ const Badges = () => {
                         cancel
                     </div>
                 }
-                {/* {
-                    ShowBadge.type === "verify-mail" && <div className="btn btn-first" onClick={
-
-                    }>
-                        verify
-                    </div>
-                } */}
 
             </div>
 

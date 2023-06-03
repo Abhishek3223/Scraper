@@ -91,7 +91,7 @@ const Login = (props) => {
         </form>
       </div>
       <div className="sidepart">
-        <div className="blinker">
+        <div className="blinker1">
           <TypeWritter word={labels} />
         </div>
         <div class="ocean">
@@ -104,5 +104,5 @@ const Login = (props) => {
     </div >
   )
 }
-
+// className="blinker"
 export default Login

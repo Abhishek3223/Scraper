@@ -42,9 +42,6 @@ const Linechart = () => {
 
     }
 
-
-
-
     const [week, setWeek] = useState(false);
     const [months, setMonths] = useState(false);
     const [Year, setYear] = useState(true);

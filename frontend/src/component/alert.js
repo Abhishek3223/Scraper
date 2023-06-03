@@ -19,6 +19,7 @@ const Alert = () => {
                     <div className="subject">
                         <h3>{ShowAlert.signal}</h3>
                         <p>{ShowAlert.message}</p>
+                      
                     </div>
                     <div className="icon-times"
                         onClick={() => {
@@ -27,7 +28,8 @@ const Alert = () => {
                                 message: "",
                                 signal: "",
                             })
-                        }}><i className="fas fa-times"></i></div>
+                        }}><i className="fas fa-times"></i>
+                    </div>
                 </div>
             </div>
         </div>

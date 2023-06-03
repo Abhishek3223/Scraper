@@ -17,11 +17,11 @@ const SideBar = (props) => {
         setMenue(!(showFullMenue));
         // props.changeWidth()
     }
-
+    const isVerificationPage = location.startsWith('/verify/');
     return (
-        <div className={(location === '/') || (location === '/login') || (location === '/signup') ? "display-none" : 'navbar'
+        <div className={(location === '/') || (location === '/login') || (location === '/signup') || (location === '/verify/:id') || (isVerificationPage) ? "display-none" : 'navbar'
         } >
-
+            {/* {isVerificationPage && ()} */}
             <div className='ul'>
                 <div className='li'>
                     <div className='menue-button' onClick={changeWidth}>

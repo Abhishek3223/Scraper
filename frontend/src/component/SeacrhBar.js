@@ -24,7 +24,9 @@ const SeacrhBar = (props) => {
     const signup = () => {
         navigate('/signup')
 
+
     }
+    const isVerificationPage = location.startsWith('/verify/');
     const LoadUser = async () => {
         try {
             if (localStorage.token) {
@@ -48,7 +50,7 @@ const SeacrhBar = (props) => {
 
     return (
 
-        <div className={(location === '/') || (location === '/login') || (location === '/signup') ? "display-none" : 'container'}>
+        <div className={(location === '/') || (location === '/login') || (location === '/verify/:id') || (location === '/signup') || (isVerificationPage) ? "display-none" : 'container'}>
             <MobileNav />
             <div className="title" style={{ "color": "white" }}>
                 <img src="/logo/Logo2.png" alt="" srcSet="" />

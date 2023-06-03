@@ -98,20 +98,25 @@ export const Comment = () => {
         const userName = await userData.name;
         const m = message.message[0];
         // console.log({ userName, m });
-        const newCmt = await addComment(userName, m);
-        console.log(newCmt);
-        setloding(false)
-        if (newCmt) {
-            SetCommentData(((CommentData.reverse()).concat(newCmt)).reverse())
+        const response = await addComment(userName, m);
+        if (await response.Success) {
+            const newCmt = await response.Newcomment;
+            console.log(newCmt);
+            setloding(false)
+            if (newCmt) {
+                SetCommentData(((CommentData.reverse()).concat(newCmt)).reverse())
+            }
+        }
+        else {
+
         }
         // console.log(loading);
     }
     const loadData = async () => {
         const d = await getComment();
-        // console.log(d);
         SetCommentData(d.reverse());
     }
-    
+
     useEffect(() => {
         loadData();
     }, [])

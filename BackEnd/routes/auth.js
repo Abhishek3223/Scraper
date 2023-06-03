@@ -61,8 +61,9 @@ router.post('/CreatUSER',
                     }
                 }
                 const AUTH_TOKEN = jwt.sign(data, JWT_SECRET)
-
-                const message = `${process.env.link}/api/auth/verify/${user.id}`;
+                const front_Origin = process.env.front_origin || 'http://localhost:3000/'
+                const message = `${front_Origin}/verify/${user.id}`;
+                console.log(message);
                 await sendEmail(user.email, message);
 
                 // console.log(AUTH_TOKEN)
@@ -163,11 +164,10 @@ router.post('/Login',
             const AUTH_TOKEN = jwt.sign(data, JWT_SECRET)
 
             // console.log(user);
-            res.json({ AUTH_TOKEN, Success })
+            res.status(200).json({ AUTH_TOKEN, Success })
 
         } catch (error) {
             console.log({ "Error occouerd !!": error });
-
             res.status(400).json(error)
         }
 

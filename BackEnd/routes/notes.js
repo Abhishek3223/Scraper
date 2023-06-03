@@ -79,8 +79,11 @@ router.post('/addItem', fetchUSER,
                     title: url1Data.title
                 })
                 const saveNotes = await compRepel.save();
-                console.log(saveNotes);
-                res.send(saveNotes)
+                // res.send(saveNotes)
+                const result = {
+                    Newcomp: saveNotes, Success: true
+                }
+                res.send(result);
             }
             else {
                 const url1Data = await ScrapingFunc(url1.link)
@@ -101,7 +104,12 @@ router.post('/addItem', fetchUSER,
                     title: url1Data.title,
                 })
                 const saveNotes = await compRepel.save();
-                res.send(saveNotes)
+                // res.send(saveNotes)
+                const result = {
+                    Newcomp: saveNotes, Success: true
+                }
+                res.send(result);
+
             }
 
 

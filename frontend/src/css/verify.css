@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.first-part {
+  width: 100%;
+  z-index: 7;
+  display: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111827;
+  /* height: 100%; */
+  /* border: 2px solid red; */
+}
+
+.navArea {
+  background-color: #111827;
+  /* width: 10vw; */
+  /* border: 2px solid grey; */
+}
+.page-content {
+  margin: 0%;
+}
+.fetch > span {
+  color: #1defed;
+}
+
+#image-logo {
+  width: 80%;
+}

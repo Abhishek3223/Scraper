@@ -304,19 +304,21 @@ body {
   }
 }
 
-.blinker {
+.blinker1 {
   position: absolute;
-  top: 10vh;
-  left: 17vw;
+  top: 20vh;
+  left: 34vw;
 }
-.blinker h1 {
+
+.blinker1 span {
   width: 46vw;
   text-align: left;
   font-size: 4vh;
   color: #00adb5;
-  /* border: 1px solid red; */
+
   font-weight: 500;
 }
+
 .loader2 {
   width: 56%;
   height: 41%;

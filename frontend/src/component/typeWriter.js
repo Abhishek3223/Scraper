@@ -47,9 +47,9 @@ export default function TypeWritter(props) {
 
     return (
         <>
-            <h1 className="blinker">
+            <span>
                 {`${words[index].substring(0, subIndex)}${blink ? "|" : " "}`}
-            </h1>
+            </span>
         </>
     );
 }

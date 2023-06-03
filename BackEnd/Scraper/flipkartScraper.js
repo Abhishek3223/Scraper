@@ -1,8 +1,6 @@
 const puppeteer = require('puppeteer');
 
 
-
-
 const flipkartScraper = (async (url) => {
 
     try {
@@ -29,7 +27,9 @@ const flipkartScraper = (async (url) => {
 
         const productDetails = await page.evaluate(async () => {
 
-            const ProductName = document.querySelector('.B_NuCI') ? document.querySelector('.B_NuCI').innerHTML : null;
+            const ProductNameElement = document.querySelector('.B_NuCI');
+            const ProductName = ProductNameElement ? ProductNameElement.innerHTML : null;
+            
             const refinedProductName = ProductName.replaceAll("<!-- -->&nbsp;&nbsp;", "");
 
             const rating = document.querySelector('._3LWZlK') ? document.querySelector('._3LWZlK').innerHTML.slice(0, 3) : null;
@@ -64,10 +64,12 @@ const flipkartScraper = (async (url) => {
             const image = []
             document.querySelectorAll(" div._2mLllQ > ul > li > div > div > img") ?
                 document.querySelectorAll(" div._2mLllQ > ul > li > div > div > img").forEach(elem => {
-                    image.push(elem.src.replaceAll("128","540"))
-                }) : "nor found"
+                    image.push(elem.src?.replaceAll("128", "540"))
+                }) : "not found"
 
-            // geting image-------------
+
+            // geting offer available-------------
+
             const offerkey = [];
             (await document.querySelectorAll('  #container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div > div._3TT44I > div > div > span > li > span.u8dYXW')) ?
                 document.querySelectorAll('  #container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div > div._3TT44I > div > div > span > li > span.u8dYXW').forEach(elem => {
@@ -101,9 +103,9 @@ const flipkartScraper = (async (url) => {
         return productDetails
 
     } catch (error) {
-
+        const errorLocation = error.stack;
         console.log({
-            "Error at fs": error.message
+            "Error at fs": error.message, errorLocation
         })
     }
 
