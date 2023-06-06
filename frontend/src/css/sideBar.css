@@ -6,7 +6,7 @@
   height: 100%;
   margin: 0px;
   padding: 0px;
-  transition: 1s;
+  transition: width 1s;
 }
 .logo {
   display: flex;
@@ -41,6 +41,7 @@
   padding: -1px;
   justify-content: flex-start;
   padding-left: 6px;
+  transition: background-color 0.5s;
 }
 /* .active:active{
     background-color: #9ca3af;
@@ -80,7 +81,7 @@
 .item {
   font-size: 21px;
   color: #ffffff;
-
+  transition: color 0.5s;
   /* border: 2px solid grey; */
 }
 .selected-item {
@@ -89,11 +90,13 @@
   border-radius: 6px;
   width: 100%;
   border: 2px solid #00adb5;
+  transition: background-color 0.5s, border 0.5s;
   /* border-left: 4px solid orange;
   border-right: 4px solid orange; */
 }
 .selected-para {
   color: white;
+  transition: color 0.5s;
 }
 
 .display-none {
@@ -159,4 +162,60 @@ svg {
 .display-none {
   display: none;
   /* border: 1px solid red; */
+}
+
+
+
+
+
+.navbar {
+  background-color: #111827;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.active {
+  margin: 0px 12px 0px 12px;
+  width: 80%;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+  padding: -1px;
+  justify-content: flex-start;
+  padding-left: 6px;
+  transition: background-color 0.3s;
+}
+
+
+
+.item {
+  font-size: 21px;
+  color: #ffffff;
+}
+
+
+
+.selected-item {
+  background-color: #111827;
+  border-radius: 6px;
+  width: 100%;
+  border: 2px solid #00adb5;
+}
+
+.selected-para {
+  color: white;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
