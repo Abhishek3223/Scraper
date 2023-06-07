@@ -74,6 +74,7 @@ const Badges = () => {
                             DeactivateBadge('e');
                             console.log("clicked");
 
+                            navigate('/');
                         }
 
                     }>

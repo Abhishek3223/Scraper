@@ -62,7 +62,7 @@ router.post('/CreatUSER',
                 }
                 const AUTH_TOKEN = jwt.sign(data, JWT_SECRET)
                 const front_Origin = process.env.front_origin || 'http://localhost:3000/'
-                const message = `${front_Origin}/verify/${user.id}`;
+                const message = `${front_Origin}verify/${user.id}`;
                 console.log(message);
                 await sendEmail(user.email, message);
 

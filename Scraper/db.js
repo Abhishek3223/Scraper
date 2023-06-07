@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // const mongoURI = "mongodb://localhost:27017/";
-const mongoURI = process.env.mongoURI
+const mongoURI =  `mongodb+srv://abhishek_1212:${process.env.PASSWORD}@cluster0.nhsofb8.mongodb.net/PriceComporator?retryWrites=true&w=majority`
 
 
 

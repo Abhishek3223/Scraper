@@ -141,8 +141,8 @@ const run = async () => {
                 }
 
             }
-            if ((element.notifyPrice >= price1 || element.notifyPrice >= price2)&& element.notifyStatus ) {
-                
+            if ((element.notifyPrice >= price1 || element.notifyPrice >= price2) && element.notifyStatus) {
+
                 const collection = db.collection("user_objs")
                 const elem = await collection.findOne({ "_id": element.user })
                 // console.log(elem.email);
@@ -162,5 +162,6 @@ const run = async () => {
         console.log("programs ends here");
     }
 }
+run();
 
 module.exports = run

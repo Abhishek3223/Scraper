@@ -34,7 +34,12 @@ const Dashbord = () => {
                 }
             }
             else {
-                ActivateBadge("Your account  is not verifed  Please verify your account First", "verify-mail", "We have sent you email for account verification")
+                ActivateBadge("Please verify your account before proceeding", "verify-mail", "We have sent you email for account verification")
+                // ActivateBadge(
+                //     "Account not verified",
+                //     "verify-mail",
+                //     "Please verify your account before proceeding"
+                //   );
                 changeLoading();
             }
 
@@ -51,7 +56,7 @@ const Dashbord = () => {
         <div className='Dashbord'>
             <Newcomp />
             <div className="present-comp">
-                {
+                {/* {
                     (isloading) ?
                         (<Loader />) :
                         (
@@ -64,7 +69,37 @@ const Dashbord = () => {
                                     <h1>nothing found</h1>
                                 </div>
                         )
+                } */}
+                {/* {
+                    isloading ? (
+                        <Loader />
+                    ) : repel && repel.length > 0 ? (
+                        [...repel].reverse().map((note) => {
+                            return <ProductCard key={note._id} data={note} />;
+                        })
+                    ) : (
+                        <div>
+                            <h1>Nothing found</h1>
+                        </div>
+                    )
+                } */}
+
+
+                {
+                    isloading ? (
+                        <Loader />
+                    ) : repel && repel.length > 0 ? (
+                        [...repel].reverse().map((note) => {
+                            return <ProductCard key={note._id} data={note} />;
+                        })
+                    ) : (
+                        <div className='nothing_found' style={{  }}>
+                            {/* <h1>Keep calm, we will notify you soon!</h1>
+                            <p>Paste a link here and we will notify you when it's ready.</p> */}
+                        </div>
+                    )
                 }
+
             </div>
         </div>
     )

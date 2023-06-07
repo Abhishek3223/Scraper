@@ -4,3 +4,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.nothing_found {
+  backgroundcolor: "yellow";
+  padding: "10px";
+  width: 98%;
+}
