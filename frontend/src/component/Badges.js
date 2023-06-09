@@ -72,11 +72,10 @@ const Badges = () => {
                     ShowBadge.status && <div div className="btn btn-second" onClick={
                         () => {
                             DeactivateBadge('e');
-                            console.log("clicked");
-
-                            navigate('/');
+                            if (ShowBadge.type === 'verify-mail') {
+                                navigate('/');
+                            }
                         }
-
                     }>
                         cancel
                     </div>

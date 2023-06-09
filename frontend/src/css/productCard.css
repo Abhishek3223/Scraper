@@ -37,6 +37,7 @@
 }
 .product-img > img {
   height: 90%;
+  max-width: 100%;
   /* width: 90%; */
 }
 .product-details {

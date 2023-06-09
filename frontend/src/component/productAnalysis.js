@@ -163,7 +163,9 @@ const ProductAnalysis = (props) => {
                                     <p>{AnalysisData.url1.priceData[AnalysisData.url1.priceData.length - 1]}</p>
 
                                 </div>
-                                <i className="fa-solid fa-link fa-xl" style={{ "color": "#00adb5" }}></i>
+                                <a to={AnalysisData.url1.link}>
+                                    <i className="fa-solid fa-link fa-xl" style={{ "color": "#00adb5" }}></i>
+                                </a>
                             </div> : ""
                         }
 
@@ -176,7 +178,11 @@ const ProductAnalysis = (props) => {
                                     <p>{AnalysisData.url2.priceData[AnalysisData.url2.priceData.length - 1]}</p>
 
                                 </div>
-                                <i className="fa-solid fa-link fa-xl" style={{ "color": "#00adb5" }}></i>
+
+                                <a target="_blank" href={AnalysisData.url2.link}>
+                                    <p></p>
+                                    <i className="fa-solid fa-link fa-xl" style={{ "color": "#00adb5" }}></i>
+                                </a>
                                 {/* <div className='bubble5'></div> */}
                             </div>
                             : ""
