@@ -59,7 +59,7 @@ router.post('/addItem', fetchUSER,
                 const compRepel = new compData({
                     user: req.user.id,
                     url1: {
-                        img: url1Data.image,
+                        img: url1Data?.image,
                         link: url1.link,
                         discription: JSON.stringify(url1Data.Details),
                         actualPrice: url1Data.Actual_price,
@@ -68,7 +68,7 @@ router.post('/addItem', fetchUSER,
                         offers: JSON.stringify(url1Data.offers)
                     },
                     url2: {
-                        img: url2Data.image,
+                        img: url2Data?.image,
                         link: url2.link,
                         discription: JSON.stringify(url2Data.Details),
                         actualPrice: url2Data.Actual_price,
@@ -92,7 +92,7 @@ router.post('/addItem', fetchUSER,
                 const compRepel = new compData({
                     user: req.user.id,
                     url1: {
-                        img: url1Data.image,
+                        img: url1Data?.image,
                         link: url1.link,
                         discription: JSON.stringify(url1Data.Details),
                         actualPrice: url1Data.Actual_price,
@@ -115,7 +115,7 @@ router.post('/addItem', fetchUSER,
 
         } catch (err) {
             console.log(err.message);
-            res.status(404).json({ "Error occouured !! ": err.message });
+            res.status(404).json({ "Error occouured  @notes !! ": err.message });
         }
 
     })

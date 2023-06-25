@@ -5,6 +5,7 @@ import '../css/login.css'
 import { Cross, Mail } from '../images/image'
 import TypeWritter from './typeWriter'
 import { Loaderr } from './loader'
+// import G_auth from './Gauth'
 const Login = (props) => {
 
   const navigate = useNavigate();
@@ -60,6 +61,12 @@ const Login = (props) => {
           {/* <div className="cross" onClick={gobacktoHome}>
             <Cross />
           </div> */}
+
+
+          {/* google login */}
+
+
+
           <h4> Hi We are <span>Scraper</span></h4>
           <p>Welcome back! Log in to your account to view today's clients:</p>
           <div className="floating-label">
@@ -88,7 +95,10 @@ const Login = (props) => {
             {/* onClick={navigate('/signup')} */}
             <p className="dont-have-acnt">Create one ?</p>
           </Link>
+          {/* <G_auth /> */}
         </form>
+
+
       </div>
       <div className="sidepart">
         <div className="blinker1">

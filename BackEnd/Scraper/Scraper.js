@@ -18,7 +18,7 @@ const ScrapingFunc = async (url) => {
 
 }
 
-// ScrapingFunc("https://www.flipkart.com/cougar-hexa-dumbbells-5kg-pair-rubber-coated-professional-hex-dumbbell-set-fixed-weight/p/itmc9eff384d9649?pid=DBLFWVR59QB3TE8V&lid=LSTDBLFWVR59QB3TE8VIX3IAL&marketplace=FLIPKART&store=qoc%2Facb%2Fzuc&srno=b_1_1&otracker=browse&iid=en_Lp9Qt%2BW%2BmFdz5VS7wEYZF9%2BafUbYshUGHIfI4g%2FrJEW%2FWFv22NsXDkWMom1LP9D%2F7u2Gi0BZ8wzLnj27YrHxRw%3D%3D&ssid=y8ld301cpc0000001675196305673")
+// ScrapingFunc("https://www.flipkart.com/sony-alpha-full-frame-ilce-7m2k-bq-in5-mirrorless-camera-body-28-70-mm-lens/p/itm92df94dc68fff?pid=DLLF6QZPNKTQMS8J&lid=LSTDLLF6QZPNKTQMS8JIDUHNS&marketplace=FLIPKART&store=jek%2Fp31%2Ftrv&srno=b_1_1&otracker=hp_omu_Best%2Bof%2BElectronics_1_3.dealCard.OMU_Q5LU1U8PHMK6_3&otracker1=hp_omu_PINNED_neo%2Fmerchandising_Best%2Bof%2BElectronics_NA_dealCard_cc_1_NA_view-all_3&fm=neo%2Fmerchandising&iid=95196158-5c35-420d-9367-61f03c41dde5.DLLF6QZPNKTQMS8J.SEARCH&ppt=hp&ppn=homepage&ssid=477gdd9q680000001686091028233")
 
 module.exports = ScrapingFunc
 
