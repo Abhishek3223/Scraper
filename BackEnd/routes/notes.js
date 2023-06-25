@@ -61,20 +61,20 @@ router.post('/addItem', fetchUSER,
                     url1: {
                         img: url1Data?.image,
                         link: url1.link,
-                        discription: JSON.stringify(url1Data.Details),
-                        actualPrice: url1Data.Actual_price,
-                        priceData: [url1Data.Discount_price],
+                        discription: JSON.stringify(url1Data?.Details),
+                        actualPrice: url1Data?.Actual_price,
+                        priceData: [url1Data?.Discount_price],
                         timeData: [currentDate],
                         offers: JSON.stringify(url1Data.offers)
                     },
                     url2: {
                         img: url2Data?.image,
                         link: url2.link,
-                        discription: JSON.stringify(url2Data.Details),
-                        actualPrice: url2Data.Actual_price,
-                        priceData: [url2Data.Discount_price],
+                        discription: JSON.stringify(url2Data?.Details),
+                        actualPrice: url2Data?.Actual_price,
+                        priceData: [url2Data?.Discount_price],
                         timeData: [currentDate],
-                        offers: JSON.stringify(url2Data.offers)
+                        offers: JSON.stringify(url2Data?.offers)
                     },
                     title: url1Data.title
                 })
@@ -94,11 +94,11 @@ router.post('/addItem', fetchUSER,
                     url1: {
                         img: url1Data?.image,
                         link: url1.link,
-                        discription: JSON.stringify(url1Data.Details),
-                        actualPrice: url1Data.Actual_price,
-                        priceData: [url1Data.Discount_price],
+                        discription: JSON.stringify(url1Data?.Details),
+                        actualPrice: url1Data?.Actual_price,
+                        priceData: [url1Data?.Discount_price],
                         timeData: [currentDate],
-                        offers: JSON.stringify(url1Data.offers)
+                        offers: JSON.stringify(url1Data?.offers)
                     },
                     url2: { link: "" },
                     title: url1Data.title,
