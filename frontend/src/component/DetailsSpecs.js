@@ -11,13 +11,12 @@ const DetailsSpecs = (props) => {
 
 
         const data = JSON.parse(localStorage.getItem('Product_data'))
-        // console.log(data);
         const d1 = JSON.parse(data.url1.discription)
         const d2 = data.url2.link ? JSON.parse(data.url2.discription) : ""
 
 
         if (data.url1.discription === '[[],[]]') { setDetailsSpecs(d2) } else { setDetailsSpecs(d1) }
-        console.log(detailsSpecs);
+
 
     }
     useEffect(() => {

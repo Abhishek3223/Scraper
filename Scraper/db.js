@@ -7,6 +7,7 @@ mongoose.set('strictQuery', false);
 
 const conectToMongo = () => {
     try {
+        console.log(process.env.PASSWORD);
         mongoose.connect(mongoURI, (error) => {
      
             // insted o using  asycn and update we are using  call back function and we can also use async function

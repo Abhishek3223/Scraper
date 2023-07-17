@@ -3,7 +3,8 @@
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, './process.env') })
 
-var url = `mongodb+srv://abhishek_1212:${process.env.PASSWORD}@cluster0.nhsofb8.mongodb.net?retryWrites=true&w=majority`
+const mongoURI = `mongodb+srv://imabhishekranjan1100:${process.env.PASSWORD}@cluster0.kzhgbbm.mongodb.net/Scraper?retryWrites=true&w=majority`
+
 
 const { MongoClient } = require("mongodb");
 const sendEmail = require("./mail/mail");
@@ -14,14 +15,14 @@ var ObjectId = require('mongodb').ObjectId;
 
 
 
-const client = new MongoClient(url, { useNewUrlParser: true });
+const client = new MongoClient(mongoURI, { useNewUrlParser: true });
 
 const run = async () => {
     try {
         await client.connect();
         console.log("Connected correctly to server");
-        const db = client.db("PriceComporator");
-        const col = db.collection("comp_objs")
+        const db = client.db("Scraper");
+        const col =  db.collection("comp_objs")
         const data = await col.find().toArray();
         console.log(data)
 
@@ -162,6 +163,6 @@ const run = async () => {
         console.log("programs ends here");
     }
 }
-run();
+// run();
 
 module.exports = run
