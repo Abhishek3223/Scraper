@@ -55,9 +55,13 @@ const Login = (props) => {
       <div className="session"  >
 
         <form onSubmit={handleSubmit} action="" className="log-in" >
-          <div className='logo_part'>
-            <img src="/logo/logo2.png" alt="" srcset="" />
-          </div>
+
+          <Link to="/" >
+
+            <div className='logo_part'>
+              <img src="/logo/logo2.png" alt="" srcset="" />
+            </div>
+          </Link>
           {/* <div className="cross" onClick={gobacktoHome}>
             <Cross />
           </div> */}

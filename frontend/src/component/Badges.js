@@ -25,7 +25,7 @@ const Badges = () => {
                     },
                     {
                         ShowBadge.type === 'error' && ShowBadge.status ? <a
-                            href="https://www.flaticon.com/free-icons/error" title="error icons" /> : ""
+                            href="https://www.flaticon.com/free-icons/error" title="error icons" ></a> : ""
                     }
 
 

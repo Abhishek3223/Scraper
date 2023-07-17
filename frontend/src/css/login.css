@@ -329,7 +329,6 @@ body {
   width: 30%;
 } */
 
-
 .google-button {
   height: 50px;
   border-width: 0;
@@ -344,7 +343,8 @@ body {
   transition-timing-function: ease-in-out;
   padding: 0;
 }
-.google-button:focus, .google-button:hover {
+.google-button:focus,
+.google-button:hover {
   box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
 }
 .google-button:active {
@@ -369,7 +369,7 @@ body {
   padding: 0 24px;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Roboto', arial, sans-serif;
+  font-family: "Roboto", arial, sans-serif;
 }
 
 /* body {
@@ -380,4 +380,14 @@ body {
 } */
 button ~ button {
   /* margin-left: 20px; */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #1c2331 inset !important;
+  /* border-radius: 10px; */
+  /* color: white; */
+  -webkit-text-fill-color: #00adb5;
 }

@@ -1,16 +1,26 @@
 const mongoose = require('mongoose');
-// const mongoURI = "mongodb://localhost:27017/";
-const mongoURI =  `mongodb+srv://abhishek_1212:${process.env.PASSWORD}@cluster0.nhsofb8.mongodb.net/PriceComporator?retryWrites=true&w=majority`
+
+const mongoURI = `mongodb+srv://imabhishekranjan1100:${process.env.PASSWORD}@cluster0.kzhgbbm.mongodb.net/Scraper?retryWrites=true&w=majority`
+mongoose.set('strictQuery', false);
 
 
 
 const conectToMongo = () => {
-    mongoose.connect(mongoURI, () => {
-        // insted o using  asycn and update we are using  call back function and we can also use async function
-        console.log('connected to mongo succesfully ')
+    try {
+        mongoose.connect(mongoURI, (error) => {
+     
+            // insted o using  asycn and update we are using  call back function and we can also use async function
+            // console.log(p);
+            error ? console.log(error) :
+                console.log(`connected to mongo succesfully `);
+
+        }
+        )
+    } catch (error) {
+        console.log({ "Failed to connect": error });
 
     }
-    )
+
 }
 
 
