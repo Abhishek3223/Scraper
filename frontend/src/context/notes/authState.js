@@ -201,40 +201,9 @@ const AuthState = (props) => {
     }
 
 
-
-    // const EditNote = async (id_toEdit, newPrice) => {
-
-    //     // api call to fetch data
-    //     const response = await fetch(`${host}/api/notes/UpdateItem/${id_toEdit}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             "auth-token": localStorage.getItem('token')
-    //         },
-
-    //         body: JSON.stringify({ newPrice })
-    //     });
-
-    //     const json = await response.json()
-
-    //     let AllRepel = JSON.parse(JSON.stringify(repel))
-
-    //     // reaching the note to edit and Editing
-    //     for (let index = 0; index < repel.length; index++) {
-    //         const element = AllRepel[index];
-    //         // console.log("Edditing !!")
-    //         if (element._id === id_toEdit) {
-    //             element.notifyPrice = newPrice
-    //         }
-    //         break;
-    //     }
-    //     setRepel(AllRepel);
-
-    // }
-
-
     return (
-        <AllContext.Provider value={{ ShowBadge, DeactivateBadge, ActivateBadge, LoginStatus, Login, setloginStatus, Getuser, showFullMenue, setMenue, repel, ShowAlert, SetAlert, SignUp, Addrepel, GetRepel, ActivateAlert }}>
+        <AllContext.Provider value={{ ShowBadge, DeactivateBadge, ActivateBadge, LoginStatus
+        , Login, setloginStatus, Getuser, showFullMenue, setMenue, repel, ShowAlert, SetAlert, SignUp, Addrepel, GetRepel, ActivateAlert }}>
             {props.children}
         </AllContext.Provider>
 

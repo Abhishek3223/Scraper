@@ -10,7 +10,6 @@ const { MongoClient } = require("mongodb");
 const sendEmail = require("./mail/mail");
 
 var ScrapingFunc = require('./Scraper');
-const { log } = require('console');
 var ObjectId = require('mongodb').ObjectId;
 
 
@@ -22,7 +21,7 @@ const run = async () => {
         await client.connect();
         console.log("Connected correctly to server");
         const db = client.db("Scraper");
-        const col =  db.collection("comp_objs")
+        const col = db.collection("comp_objs")
         const data = await col.find().toArray();
         console.log(data)
 
@@ -49,8 +48,8 @@ const run = async () => {
 
                 const link = element.url1.link
                 const d = await ScrapingFunc(link);
-                // console.log(d);
-                if (d.Actual_price) {
+                console.log('the daata is ', d, link);
+                if (d?.Actual_price) {
                     const newPrice = (d.Actual_price)
                     price1 = newPrice;
                     const newDiscountedPrice = (d.Discount_price)
@@ -163,6 +162,6 @@ const run = async () => {
         console.log("programs ends here");
     }
 }
-// run();
+run();
 
 module.exports = run

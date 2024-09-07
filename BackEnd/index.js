@@ -12,8 +12,6 @@ const { send } = require('process');
 const app = Express()
 
 const corsOptions = {
-    // origin: allowedOrigins,
-    // origin: ['http://localhost:3000', process.env.front_Origin],
     origin: '*',
     methods: ['GET', 'POST', "PUT"],
     allowedHeaders: ['Content-Type', 'auth-token'],

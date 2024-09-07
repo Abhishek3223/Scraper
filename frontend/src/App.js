@@ -11,7 +11,6 @@ import SignUp from './component/SIgnup';
 import Dashbord from './component/Dashbord';
 import Alert from './component/alert';
 import { Comment } from './component/Comment';
-// import MobileNav from './component/mobileNabar';
 import Badges from './component/Badges';
 import Verification from './component/Verification';
 
@@ -46,10 +45,8 @@ function App() {
 
                   <Route exact path='/signup' element={<SignUp />} />
                   <Route exact path='/login' element={<Login />} />
-                  {/* <Route exact path='/alert' element={<Alert/>} /> */}
                   <Route exact path='/' element={<Home />} />
                   <Route path='/verify/:id' element={<Verification />} />
-
                   <Route exact path='/dashboard' element={<Dashbord />} />
                   <Route exact path='/comment' element={<Comment />} />
                   <Route exact path='/productAnalysis' element={<ProductAnalysis />} />
